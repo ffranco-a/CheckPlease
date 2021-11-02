@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Gasto({ gasto }) {
+function Gasto({ gasto, borrarGasto }) {
   return (
     <div className='flex justify-between pr-20'>
       <span>
@@ -8,6 +8,8 @@ function Gasto({ gasto }) {
       </span>
       <span>Monto: {gasto.monto}</span>
       <span className='capitalize'>Detalle: {gasto.detalle}</span>
+      {/* <button>Editar</button> */}
+      <button onClick={() => borrarGasto(gasto)}>Borrar</button>
     </div>
   );
 }

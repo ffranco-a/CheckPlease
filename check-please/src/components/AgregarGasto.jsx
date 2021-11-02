@@ -19,12 +19,10 @@ function AgregarGasto({ agregarGasto, grupo, categorias, setCategorias }) {
   const handleAgregarGasto = (e) => {
     e.preventDefault();
     agregarGasto(gasto);
-    //* si esta categoría es nueva, la agrego al array de categorías
-    if (!categorias.some((categoria) => categoria === gasto.detalle)) setCategorias([...categorias, gasto.detalle]);
     setGasto({
+      ...gasto,
       monto: 0,
       detalle: '',
-      persona: '',
     });
   };
 
@@ -39,7 +37,7 @@ function AgregarGasto({ agregarGasto, grupo, categorias, setCategorias }) {
         <label>
           Realizado por
           <select name='persona' className='capitalize' onChange={handleNuevoGasto}>
-            <option value='default'>Selecciona</option>
+            <option>Selecciona</option>
             {grupo.map((persona) => (
               <option key={persona.id} className='capitalize' value={persona.nombre}>
                 {persona.nombre}
@@ -67,11 +65,11 @@ function AgregarGasto({ agregarGasto, grupo, categorias, setCategorias }) {
             list='detalle'
             value={gasto.detalle}
             onChange={handleNuevoGasto}
-            className='px-1 mx-1 rounded-md border-2 border-gray-400 capitalize'
+            className='px-1 mx-1 rounded-md border-2 border-gray-400'
           />
         </label>
         <datalist id='detalle' className='capitalize'>
-          {categorias.length > 0 && categorias.map((categoria, i) => <option key={i} value={categoria} className='capitalize' />)}
+          {categorias.length > 0 && categorias.map((categoria, i) => <option key={i} value={categoria.detalle} className='capitalize' />)}
         </datalist>
 
         <button type='submit' disabled={handleDisableButton()} className='p-1 bg-green-400 rounded-md'>
