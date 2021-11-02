@@ -20,10 +20,12 @@ function AgregarPersonas({ agregarPersona }) {
 
   return (
     <div>
-      <input type='text' value={nombre} onChange={handleNuevaPersona} />
-      <button disabled={handleDisableButton()} onClick={handleAgregar}>
-        Agregar
-      </button>
+      <form onSubmit={handleAgregar}>
+        <input type='text' value={nombre} onChange={handleNuevaPersona} className='px-1 mr-1 rounded-md border-2 border-gray-400' />
+        <button type='submit' disabled={handleDisableButton()} className='p-1 bg-green-400 rounded-md' >
+          Agregar
+        </button>
+      </form>
     </div>
   );
 }
