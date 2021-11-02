@@ -1,10 +1,11 @@
 import React from 'react';
 
 //? Components
-import AgregarPersonas from './AgregarPersonas';
+import AgregarPersona from './AgregarPersona';
 import Persona from './Persona';
 
 function Personas({ grupo, setGrupo }) {
+
   //* Función que agrega personas al array `grupo` de personas
   const handleAgregarPersona = (nombre) => {
     /* me falta controlar que el nombre nuevo no exista ya en el array, o pedir que modifique el que existe */
@@ -19,12 +20,12 @@ function Personas({ grupo, setGrupo }) {
   };
 
   return (
-    <div>
-      <div>Agregar personas</div>
-      <AgregarPersonas agregarPersona={handleAgregarPersona} />
+    <fieldset className='border border-solid border-gray-300 p-3 rounded-lg'>
+      <legend>Agregar personas</legend>
+      <AgregarPersona agregarPersona={handleAgregarPersona} />
       {/* ↓ por cada persona en el array de personas muestro su nombre y opciones como editar el nombre o eliminarla */}
       {grupo.length > 0 && grupo.map((persona) => <Persona key={persona.id} persona={persona} borrarPersona={handleBorrarPersona} />)}
-    </div>
+    </fieldset>
   );
 }
 

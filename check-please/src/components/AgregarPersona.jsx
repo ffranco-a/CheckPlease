@@ -7,7 +7,7 @@ function AgregarPersonas({ agregarPersona }) {
     setNombre(e.target.value);
   };
 
-  const handleAgregar = (e) => {
+  const handleAgregarPersona = (e) => {
     e.preventDefault();
     agregarPersona(nombre);
     setNombre('');
@@ -20,7 +20,7 @@ function AgregarPersonas({ agregarPersona }) {
 
   return (
     <div>
-      <form onSubmit={handleAgregar}>
+      <form onSubmit={handleAgregarPersona}>
         <input type='text' value={nombre} onChange={handleNuevaPersona} className='px-1 mr-1 rounded-md border-2 border-gray-400' />
         <button type='submit' disabled={handleDisableButton()} className='p-1 bg-green-400 rounded-md' >
           Agregar
