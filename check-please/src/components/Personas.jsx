@@ -23,8 +23,10 @@ function Personas({ grupo, setGrupo }) {
     <fieldset className='border border-solid border-gray-300 p-3 rounded-lg'>
       <legend>Agregar personas</legend>
       <AgregarPersona agregarPersona={handleAgregarPersona} />
-      {/* ↓ por cada persona en el array de personas muestro su nombre y opciones como editar el nombre o eliminarla */}
-      {grupo.length > 0 && grupo.map((persona) => <Persona key={persona.id} persona={persona} borrarPersona={handleBorrarPersona} />)}
+      <div className='flex'>
+        {/* ↓ por cada persona en el array de personas muestro su nombre y opciones como editar el nombre o eliminarla */}
+        {grupo.length > 0 && grupo.map((persona) => <Persona key={persona.id} persona={persona} borrarPersona={handleBorrarPersona} />)}
+      </div>
     </fieldset>
   );
 }

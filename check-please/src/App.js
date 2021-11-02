@@ -9,11 +9,14 @@ function App() {
   // * Array con los gastos
   const [gastos, setGastos] = useState([]);
 
+  // * Array con las categorias a subdividir
+  const [categorias, setCategorias] = useState([]);
+
   return (
     <div className='flex justify-evenly'>
       <div>
         <Personas grupo={grupo} setGrupo={setGrupo} />
-        <Gastos gastos={gastos} setGastos={setGastos} grupo={grupo} />
+        <Gastos grupo={grupo} gastos={gastos} setGastos={setGastos} categorias={categorias} setCategorias={setCategorias} />
         <div>Gestionar Gastos</div>
         <button>Calcular</button>
       </div>

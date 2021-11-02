@@ -2,7 +2,7 @@ import React from 'react';
 
 function Persona({ persona, borrarPersona }) {
   return (
-    <div className='p-1 my-1 flex items-center justify-between bg-gray-300 rounded-md'>
+    <div className='p-1 my-1 flex items-center justify-between gap-4 bg-gray-300 rounded-md'>
       <span className='capitalize'>
         {persona.nombre}
         {/* , id: {persona.id} */}
