@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Consumos from './components/Consumos';
 import Gastos from './components/Gastos';
 import Personas from './components/Personas';
 
@@ -17,7 +18,7 @@ function App() {
       <div>
         <Personas grupo={grupo} setGrupo={setGrupo} />
         <Gastos grupo={grupo} gastos={gastos} setGastos={setGastos} categorias={categorias} setCategorias={setCategorias} />
-        <div>Gestionar Gastos</div>
+        <Consumos categorias={categorias} setCategorias={setCategorias} grupo={grupo} />
         <button>Calcular</button>
       </div>
       <div>Ver cálculos</div>

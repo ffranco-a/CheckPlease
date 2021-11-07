@@ -37,7 +37,7 @@ function AgregarGasto({ agregarGasto, grupo, categorias, setCategorias }) {
         <label>
           Realizado por
           <select name='persona' className='capitalize' onChange={handleNuevoGasto}>
-            <option>Selecciona</option>
+            <option value=''>Selecciona</option>
             {grupo.map((persona) => (
               <option key={persona.id} className='capitalize' value={persona.nombre}>
                 {persona.nombre}

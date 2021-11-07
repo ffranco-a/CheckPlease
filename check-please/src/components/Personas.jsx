@@ -5,7 +5,6 @@ import AgregarPersona from './AgregarPersona';
 import Persona from './Persona';
 
 function Personas({ grupo, setGrupo }) {
-
   //* Función que agrega personas al array `grupo` de personas
   const handleAgregarPersona = (nombre) => {
     /* me falta controlar que el nombre nuevo no exista ya en el array, o pedir que modifique el que existe */
@@ -15,17 +14,22 @@ function Personas({ grupo, setGrupo }) {
 
   //* Función para eliminar a una persona del array `grupo`
   const handleBorrarPersona = (persona) => {
-    const nuevoGrupo = grupo.filter(prevPersona => prevPersona.id !== persona.id);
+    const nuevoGrupo = grupo.filter((prevPersona) => prevPersona.id !== persona.id);
     setGrupo(nuevoGrupo);
   };
 
   return (
     <fieldset className='border border-solid border-gray-300 p-3 rounded-lg'>
-      <legend>Agregar personas</legend>
+      <legend>Agregar personas al grupo</legend>
       <AgregarPersona agregarPersona={handleAgregarPersona} />
       <div className='flex'>
         {/* ↓ por cada persona en el array de personas muestro su nombre y opciones como editar el nombre o eliminarla */}
-        {grupo.length > 0 && grupo.map((persona) => <Persona key={persona.id} persona={persona} borrarPersona={handleBorrarPersona} />)}
+        {grupo.length > 0 &&
+          grupo.map((persona) => (
+            <div key={persona.id}>
+              <Persona persona={persona} borrarPersona={handleBorrarPersona} />
+            </div>
+          ))}
       </div>
     </fieldset>
   );

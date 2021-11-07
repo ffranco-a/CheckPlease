@@ -12,24 +12,28 @@ function Gastos({ gastos, setGastos, grupo, categorias, setCategorias }) {
     //* si esta categoría es nueva, la agrego al array de categorías, con su id único
     if (!categorias.some((categoria) => categoria.detalle === gasto.detalle)) {
       const nuevaCategoria = {
-        detalle: gasto.detalle,
         id: categorias.length === 0 ? 0 : categorias[categorias.length - 1].id + 1,
-        comparten: [gasto.persona],
+        detalle: gasto.detalle,
+        comparten: gasto.persona === '' ? [] : [gasto.persona],
+        todes: false,
       };
       setCategorias([...categorias, nuevaCategoria]);
     } else {
-      const categoriaActualizada = categorias.find(categoria => categoria.detalle === gasto.detalle);
-      const categoriasFiltradas = categorias.filter(categoria => categoria.detalle !== gasto.detalle);
-      categoriaActualizada.comparten.push(gasto.persona);
-      setCategorias([...categoriasFiltradas, categoriaActualizada]);
+      const categoriasActualizadas = categorias.map((categoria) => {
+        if (categoria.detalle === gasto.detalle) {
+          if (!categoria.comparten.includes(gasto.persona)) categoria.comparten.push(gasto.persona);
+        }
+        return categoria;
+      });
+      setCategorias(categoriasActualizadas);
     }
   };
 
   //* Función para eliminar gastos del array `gastos`
   const handleBorrarGasto = (gasto) => {
     const nuevosGastos = gastos.filter((prevGastos) => prevGastos.id !== gasto.id);
-    if (!nuevosGastos.some(prevGasto => prevGasto.detalle === gasto.detalle)) {
-      const nuevasCategorias = categorias.filter(categoria => categoria.detalle !== gasto.detalle);
+    if (!nuevosGastos.some((prevGasto) => prevGasto.detalle === gasto.detalle)) {
+      const nuevasCategorias = categorias.filter((categoria) => categoria.detalle !== gasto.detalle);
       setCategorias(nuevasCategorias);
     }
     setGastos(nuevosGastos);
@@ -39,7 +43,13 @@ function Gastos({ gastos, setGastos, grupo, categorias, setCategorias }) {
     <fieldset className='border border-solid border-gray-300 p-3 rounded-lg'>
       <legend>Agregar gastos</legend>
       <AgregarGasto agregarGasto={handleAgregarGasto} grupo={grupo} categorias={categorias} setCategorias={setCategorias} />
-      {gastos.length > 0 && gastos.map((gasto) => <Gasto key={gasto.id} gasto={gasto} borrarGasto={handleBorrarGasto} />)}
+      {/* ↓ por cada gasto en el array de gastos muestro el detalle, el monto y un botón para eliminarlo */}
+      {gastos.length > 0 &&
+        gastos.map((gasto) => (
+          <div key={gasto.id}>
+            <Gasto gasto={gasto} borrarGasto={handleBorrarGasto} />
+          </div>
+        ))}
     </fieldset>
   );
 }
