@@ -25,14 +25,15 @@ function Consumo({ categoria, categorias, setCategorias, grupo }) {
 
   return (
     <div className='p-2 flex flex-col bg-gray-300 rounded-md'>
-      <span className='capitalize font-bold'>{categoria.detalle}</span>
+      <span className='capitalize font-bold text-center'>{categoria.detalle}</span>
       <label>
         <input type='checkbox' checked={categoria.todes} onChange={() => handleTodes(categoria.id)} />
         ¿Todes consumieron <span className='capitalize italic'>{categoria.detalle}</span>?: {categoria.todes ? 'SI' : 'NO'}
       </label>
       {!categoria.todes && (
         <div>
-          ¿Quiénes consumieron {categoria.detalle}?
+          <hr className='my-2' />
+          ¿Quiénes consumieron <span className='capitalize italic'>{categoria.detalle}</span>?
           {grupo.map((persona) => (
             <div key={persona.id}>
               <ConsumoSelectorPersona

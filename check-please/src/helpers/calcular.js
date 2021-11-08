@@ -14,7 +14,7 @@ const calcular = (grupo, gastos, categorias) => {
         return categoria;
       });
     else {
-      gastosPorCategoria.push({...gasto, monto: parseInt(gasto.monto)});
+      gastosPorCategoria.push({ ...gasto, monto: parseInt(gasto.monto) });
       gastosDetalle.push(gasto.detalle);
     }
   });

@@ -22,7 +22,7 @@ function App() {
   const handleCalcular = (e) => {
     e.preventDefault();
     setResultados(calcular(grupo, gastos, categorias));
-  }
+  };
 
   return (
     <div className='flex justify-evenly'>
@@ -30,9 +30,7 @@ function App() {
         <Personas grupo={grupo} setGrupo={setGrupo} />
         <Gastos grupo={grupo} gastos={gastos} setGastos={setGastos} categorias={categorias} setCategorias={setCategorias} />
         <Consumos categorias={categorias} setCategorias={setCategorias} grupo={grupo} />
-        <button
-          className='rounded-md p-4 mx-auto my-4 w-full bg-blue-400 transition-all hover:bg-blue-200'
-          onClick={handleCalcular}>
+        <button className='rounded-md p-4 mx-auto my-4 w-full bg-blue-400 transition-all hover:bg-blue-200' onClick={handleCalcular}>
           Calcular
         </button>
       </div>
