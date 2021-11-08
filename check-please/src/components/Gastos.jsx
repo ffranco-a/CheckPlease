@@ -1,5 +1,5 @@
 import React from 'react';
-import AgregarGasto from './AgregarGasto';
+import GastoAgregar from './GastoAgregar';
 import Gasto from './Gasto';
 
 function Gastos({ gastos, setGastos, grupo, categorias, setCategorias }) {
@@ -42,7 +42,7 @@ function Gastos({ gastos, setGastos, grupo, categorias, setCategorias }) {
   return (
     <fieldset className='border border-solid border-gray-300 p-3 rounded-lg'>
       <legend>Agregar gastos</legend>
-      <AgregarGasto agregarGasto={handleAgregarGasto} grupo={grupo} categorias={categorias} setCategorias={setCategorias} />
+      <GastoAgregar agregarGasto={handleAgregarGasto} grupo={grupo} categorias={categorias} setCategorias={setCategorias} />
       {/* ↓ por cada gasto en el array de gastos muestro el detalle, el monto y un botón para eliminarlo */}
       {gastos.length > 0 &&
         gastos.map((gasto) => (

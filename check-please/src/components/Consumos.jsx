@@ -15,7 +15,7 @@ function Consumos({ categorias, setCategorias, grupo }) {
         {!todes &&
           categorias.map((categoria) => (
             <div key={categoria.id}>
-              <Consumo categoria={categoria} categorias={categorias} setCategorias={setCategorias} />
+              <Consumo categoria={categoria} categorias={categorias} setCategorias={setCategorias} grupo={grupo} />
             </div>
           ))}
       </div>

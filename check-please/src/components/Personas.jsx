@@ -1,7 +1,7 @@
 import React from 'react';
 
 //? Components
-import AgregarPersona from './AgregarPersona';
+import PersonaAgregar from './PersonaAgregar';
 import Persona from './Persona';
 
 function Personas({ grupo, setGrupo }) {
@@ -21,7 +21,7 @@ function Personas({ grupo, setGrupo }) {
   return (
     <fieldset className='border border-solid border-gray-300 p-3 rounded-lg'>
       <legend>Agregar personas al grupo</legend>
-      <AgregarPersona agregarPersona={handleAgregarPersona} />
+      <PersonaAgregar agregarPersona={handleAgregarPersona} />
       <div className='flex'>
         {/* ↓ por cada persona en el array de personas muestro su nombre y opciones como editar el nombre o eliminarla */}
         {grupo.length > 0 &&
