@@ -4,15 +4,8 @@ import React from 'react';
 import PersonaAgregar from './PersonaAgregar';
 import Persona from './Persona';
 
-function Personas({ grupo, setGrupo }) {
-  //* Función que agrega personas al array `grupo` de personas
-  const handleAgregarPersona = (nombre) => {
-    /* me falta controlar que el nombre nuevo no exista ya en el array, o pedir que modifique el que existe */
-    const id = grupo.length === 0 ? 0 : grupo[grupo.length - 1].id + 1;
-    setGrupo([...grupo, { nombre, id }]);
-  };
-
-  //* Función para eliminar a una persona del array `grupo`
+function Personas({ grupo, setGrupo, agregarPersona }) {
+  //* Función para eliminar a una persona del array `grupo` // falta que si elimino una persona que hizo gastos, que los gastos asociados a esa persona se eliminen también
   const handleBorrarPersona = (persona) => {
     const nuevoGrupo = grupo.filter((prevPersona) => prevPersona.id !== persona.id);
     setGrupo(nuevoGrupo);
@@ -21,7 +14,7 @@ function Personas({ grupo, setGrupo }) {
   return (
     <fieldset className='border border-solid border-gray-300 p-3 rounded-lg'>
       <legend>Agregar personas al grupo</legend>
-      <PersonaAgregar agregarPersona={handleAgregarPersona} />
+      <PersonaAgregar agregarPersona={agregarPersona} />
       <div className='flex'>
         {/* ↓ por cada persona en el array de personas muestro su nombre y opciones como editar el nombre o eliminarla */}
         {grupo.length > 0 &&

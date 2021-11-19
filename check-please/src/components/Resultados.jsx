@@ -1,14 +1,19 @@
 import React from 'react';
 
 function Resultados({ resultados }) {
-  return (
-    resultados.total === undefined 
-      ? <div>Esperando datos...</div> 
-      : <div>
-        Gasto total = {resultados.total} <br />
-        División tradicional = {resultados.divisionTradicional}
-        Gastos por Categoría = {resultados.gastosPorCategoria.map((gasto, i) => <span key={i}>{`${gasto[0]}: ${gasto[1]}`}</span>)}
+  return resultados.total === undefined ? (
+    <div>Esperando datos...</div>
+  ) : (
+    <div className='flex flex-col'>
+      <div>Gasto total = $ {resultados.total}</div>
+      <div>División tradicional = $ {resultados.divisionTradicional}</div>
+      <div className='flex flex-col'>
+        Gastos por Categoría ={' '}
+        {resultados.gastosPorCategoria.map((gasto, i) => (
+          <span key={i} className='capitalize'>{`${gasto.detalle}: $ ${gasto.monto.toFixed(2)}`}</span>
+        ))}
       </div>
+    </div>
   );
 }
 

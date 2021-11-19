@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function AgregarGasto({ agregarGasto, grupo, categorias, setCategorias }) {
+function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCategorias }) {
   const [gasto, setGasto] = useState({
     monto: 0,
     detalle: '',
@@ -19,6 +19,7 @@ function AgregarGasto({ agregarGasto, grupo, categorias, setCategorias }) {
   const handleAgregarGasto = (e) => {
     e.preventDefault();
     agregarGasto(gasto);
+    if (gasto.persona !== '' && !grupo.some((persona) => persona.nombre === gasto.persona)) agregarPersona(gasto.persona);
     setGasto({
       ...gasto,
       monto: 0,
@@ -36,15 +37,18 @@ function AgregarGasto({ agregarGasto, grupo, categorias, setCategorias }) {
       <form onSubmit={handleAgregarGasto}>
         <label>
           Realizado por
-          <select name='persona' className='capitalize' onChange={handleNuevoGasto}>
-            <option value=''>Selecciona</option>
-            {grupo.map((persona) => (
-              <option key={persona.id} className='capitalize' value={persona.nombre}>
-                {persona.nombre}
-              </option>
-            ))}
-          </select>
+          <input
+            type='text'
+            name='persona'
+            list='persona'
+            value={gasto.persona}
+            onChange={handleNuevoGasto}
+            className='px-1 mx-1 rounded-md border-2 border-gray-400'
+          />
         </label>
+        <datalist id='persona' className='capitalize'>
+          {grupo.length > 0 && grupo.map((persona, i) => <option key={i} value={persona.nombre} className='capitalize' />)}
+        </datalist>
 
         <label>
           Monto

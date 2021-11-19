@@ -18,6 +18,17 @@ function App() {
   //* Objeto con los resultados
   const [resultados, setResultados] = useState({});
 
+  //* Función que agrega personas al array `grupo` de personas
+  const handleAgregarPersona = (nombre) => {
+    if (grupo.some((persona) => persona.nombre.toLowerCase() === nombre.toLowerCase())) {
+      alert(`Los nombres de las personas deben ser únicos`);
+      return;
+    } else {
+      const id = grupo.length === 0 ? 0 : grupo[grupo.length - 1].id + 1;
+      setGrupo([...grupo, { nombre, id }]);
+    }
+  };
+
   //* llamar a la función para calcular
   const handleCalcular = (e) => {
     e.preventDefault();
@@ -27,8 +38,15 @@ function App() {
   return (
     <div className='flex justify-evenly'>
       <div>
-        <Personas grupo={grupo} setGrupo={setGrupo} />
-        <Gastos grupo={grupo} gastos={gastos} setGastos={setGastos} categorias={categorias} setCategorias={setCategorias} />
+        <Personas grupo={grupo} setGrupo={setGrupo} agregarPersona={handleAgregarPersona} />
+        <Gastos
+          grupo={grupo}
+          gastos={gastos}
+          setGastos={setGastos}
+          categorias={categorias}
+          setCategorias={setCategorias}
+          agregarPersona={handleAgregarPersona}
+        />
         <Consumos categorias={categorias} setCategorias={setCategorias} grupo={grupo} />
         <button className='rounded-md p-4 mx-auto my-4 w-full bg-blue-400 transition-all hover:bg-blue-200' onClick={handleCalcular}>
           Calcular
