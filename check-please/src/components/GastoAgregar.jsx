@@ -24,6 +24,7 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
       ...gasto,
       monto: 0,
       detalle: '',
+      persona: '',
     });
   };
 

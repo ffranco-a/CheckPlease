@@ -15,6 +15,9 @@ function App() {
   //* Array con las categorias a subdividir por consumo
   const [categorias, setCategorias] = useState([]);
 
+  //* Booleano que indica si todes en el grupo consumieron todas las categorias
+  const [todesCompartenTodo, setTodesCompartenTodo] = useState(null);
+
   //* Objeto con los resultados
   const [resultados, setResultados] = useState({});
 
@@ -32,13 +35,16 @@ function App() {
   //* llamar a la función para calcular
   const handleCalcular = (e) => {
     e.preventDefault();
-    setResultados(calcular(grupo, gastos, categorias));
+    console.log('grupo : ', grupo); // ELETE DELETE DELETE
+    console.log('gastos : ', gastos); // ELETE DELETE DELETE
+    console.log('categorias : ', categorias); // ELETE DELETE DELETE
+    setResultados(calcular(grupo, gastos, categorias, todesCompartenTodo));
   };
 
   return (
-    <div className='flex justify-evenly'>
+    <div className='flex flex-col justify-evenly'>
       <div>
-        <Personas grupo={grupo} setGrupo={setGrupo} agregarPersona={handleAgregarPersona} />
+        <Personas grupo={grupo} setGrupo={setGrupo} agregarPersona={handleAgregarPersona} gastos={gastos} />
         <Gastos
           grupo={grupo}
           gastos={gastos}
@@ -47,7 +53,7 @@ function App() {
           setCategorias={setCategorias}
           agregarPersona={handleAgregarPersona}
         />
-        <Consumos categorias={categorias} setCategorias={setCategorias} grupo={grupo} />
+        <Consumos categorias={categorias} setCategorias={setCategorias} grupo={grupo} todes={todesCompartenTodo} setTodes={setTodesCompartenTodo} />
         <button className='rounded-md p-4 mx-auto my-4 w-full bg-blue-400 transition-all hover:bg-blue-200' onClick={handleCalcular}>
           Calcular
         </button>

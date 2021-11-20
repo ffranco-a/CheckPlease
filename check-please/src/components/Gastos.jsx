@@ -15,7 +15,7 @@ function Gastos({ gastos, setGastos, grupo, agregarPersona, categorias, setCateg
         id: categorias.length === 0 ? 0 : categorias[categorias.length - 1].id + 1,
         detalle: gasto.detalle,
         comparten: gasto.persona === '' ? [] : [gasto.persona],
-        todes: false,
+        todes: null,
       };
       setCategorias([...categorias, nuevaCategoria]);
     } else {

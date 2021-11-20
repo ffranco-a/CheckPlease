@@ -1,15 +1,15 @@
 import React from 'react';
+import userLogo from '../images/user.svg';
 
 function Persona({ persona, borrarPersona }) {
   return (
-    <div className='p-1 my-1 mr-4 flex items-center justify-between gap-4 bg-gray-300 rounded-md'>
-      <span className='capitalize'>
+    <div className='p-2 min-w-logo h-14 flex flex-col items-center justify-center bg-gray-300 rounded-full relative'>
+      <img src={userLogo} alt='user logo' className='w-6 h-6' />
+      <span className='capitalize text-sm relative bottom-1'>
         {persona.nombre}
         {/* , id: {persona.id} */}
       </span>
-      <button onClick={() => borrarPersona(persona)} className='p-1 bg-red-300 rounded-md'>
-        Eliminar
-      </button>
+      <button title={`Eliminar a ${persona.nombre} del grupo`} onClick={() => borrarPersona(persona)} className='h-4 w-4 absolute top-0 right-0 rounded-full bg-red-300 transition-all hover:bg-red-400' />
     </div>
   );
 }
