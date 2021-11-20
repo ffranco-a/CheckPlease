@@ -7,12 +7,12 @@ function Resultados({ resultados }) {
     <div className='flex flex-col'>
       <div>Gasto total = $ {resultados.total}</div>
       <div>División tradicional = $ {resultados.divisionTradicional}</div>
-      <div className='flex flex-col'>
+      {!resultados.todesCompartenTodo && <div className='flex flex-col'>
         Gastos por Categoría ={' '}
-        {resultados.gastosPorCategoria.map((gasto, i) => (
+        {resultados.totalPorCategoria?.map((gasto, i) => (
           <span key={i} className='capitalize'>{`${gasto.detalle}: $ ${gasto.monto.toFixed(2)}`}</span>
         ))}
-      </div>
+      </div>}
     </div>
   );
 }

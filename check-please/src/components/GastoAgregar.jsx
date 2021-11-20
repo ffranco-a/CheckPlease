@@ -19,7 +19,8 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
   const handleAgregarGasto = (e) => {
     e.preventDefault();
     agregarGasto(gasto);
-    if (gasto.persona !== '' && !grupo.some((persona) => persona.nombre === gasto.persona)) agregarPersona(gasto.persona);
+    if (gasto.persona !== '' && !grupo.personas.some((persona) => persona.nombre.toLowerCase() === gasto.persona.toLowerCase()))
+      agregarPersona(gasto.persona);
     setGasto({
       ...gasto,
       monto: 0,
@@ -48,7 +49,7 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
           />
         </label>
         <datalist id='persona' className='capitalize'>
-          {grupo.length > 0 && grupo.map((persona, i) => <option key={i} value={persona.nombre} className='capitalize' />)}
+          {grupo.cantidad > 0 && grupo.personas.map((persona, i) => <option key={i} value={persona.nombre} className='capitalize' />)}
         </datalist>
 
         <label>

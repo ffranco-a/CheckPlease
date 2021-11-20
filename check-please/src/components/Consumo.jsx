@@ -38,7 +38,7 @@ function Consumo({ categoria, categorias, setCategorias, grupo }) {
         <div>
           <hr className='my-2' />
           ¿Quiénes consumieron <span className='capitalize italic'>{categoria.detalle}</span>?
-          {grupo.map((persona) => (
+          {grupo.personas.map((persona) => (
             <div key={persona.id}>
               <ConsumoSelectorPersona
                 persona={persona}

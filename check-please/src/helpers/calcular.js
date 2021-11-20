@@ -1,21 +1,42 @@
-import calcularGastosPorCategoria from './gastosPorCategoria';
+import calcularTotalPorCategoria from './totalPorCategoria';
 
-const calcular = (grupo, gastos, categorias) => {
+const calcular = (grupo, gastos, categorias, todesCompartenTodo) => {
+  console.log('grupo : ', grupo); // DELETE DELETE DELETE
+  console.log('gastos : ', gastos); // DELETE DELETE DELETE
+  console.log('categorias : ', categorias); // DELETE DELETE DELETE
+  console.log('todesCompartenTodo : ', todesCompartenTodo); // DELETE DELETE DELETE
+  
   const total = gastos.reduce((acc, cur) => acc + parseInt(cur.monto), 0).toFixed(2);
-  const divisionTradicional = (total / grupo.length).toFixed(2);
+  const divisionTradicional = (total / grupo.cantidad).toFixed(2);
 
-  //* De haber más de un gasto por categoría, los unifico
-  const gastosPorCategoria = calcularGastosPorCategoria(gastos);
+  //* si se requiere una división en partes iguales, retornarla
+  if (todesCompartenTodo) {
+    let resultados = {
+      total,
+      divisionTradicional,
+      todesCompartenTodo,
+    };
+    console.log(resultados) // DELETE DELETE DELETE
+    return resultados;
+  } 
 
-  //*
+  //* si se requiere una división más específica, realizar esos cálculos
+  else {
 
-  const resultados = {
-    total,
-    divisionTradicional,
-    gastosPorCategoria,
-  };
+    //* De haber más de un gasto por categoría, los unifico
+    const totalPorCategoria = calcularTotalPorCategoria(gastos);
+  
+    //*
+  
+    const resultados = {
+      total,
+      divisionTradicional,
+      totalPorCategoria,
+    };
+  
+    return resultados;
+  }
 
-  return resultados;
 };
 
 export default calcular;

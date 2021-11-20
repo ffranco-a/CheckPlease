@@ -5,7 +5,7 @@ import ConsumosSiONo from './ConsumosSiONo';
 function Consumos({ categorias, setCategorias, grupo, todes, setTodes }) {
   return (
     <fieldset className='border border-solid border-gray-300 p-3 rounded-lg'>
-      <legend>Gestionar consumos compartidos</legend>
+      <legend>Consumos compartidos</legend>
       <ConsumosSiONo categoria='Todo' todes={todes} setTodes={setTodes} />
       <div className='flex gap-8'>
         {todes === false &&
