@@ -36,7 +36,7 @@ function App() {
   //* llamar a la función para calcular
   const handleCalcular = (e) => {
     e.preventDefault();
-    setResultados(calcular(grupo, gastos, categorias, todesCompartenTodo));
+    setResultados(calcular(grupo, gastos, todesCompartenTodo, categorias));
   };
 
   return (

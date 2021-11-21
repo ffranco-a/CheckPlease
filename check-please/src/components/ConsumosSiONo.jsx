@@ -13,7 +13,7 @@ function ConsumosSiONo({ categoria, todes, setTodes, handleSetTodes }) {
 
   return (
     <div>
-      ¿Todes consumieron <span className='capitalize'>{categoria}</span>?
+      ¿Todes compartieron <span className='capitalize'>{categoria}</span>?
       <label
         htmlFor={categoria + ' si'}
         className={`${

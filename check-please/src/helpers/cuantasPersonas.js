@@ -1,4 +1,4 @@
-const calcularCuantasPersonas = (categorias, tamañoDelGrupo) => {
+const calcularCuantasPersonas = (categorias, grupo) => {
 
   //* recorro las categorias y cuento cuanta gente las consumió
   const categoriasConCantidad = categorias.map((categoria) => {
@@ -6,8 +6,8 @@ const calcularCuantasPersonas = (categorias, tamañoDelGrupo) => {
     //* Si a la categoria la consumieron todes en el grupo, le seteo la cantidad al total del grupo
     if (categoria.todes) {
       let nuevaCategoria = {
-        cantidad: tamañoDelGrupo,
-        categoria,
+        ...categoria,
+        cantidad: grupo.cantidad,
       }
       return nuevaCategoria;
     } 
@@ -15,8 +15,8 @@ const calcularCuantasPersonas = (categorias, tamañoDelGrupo) => {
     //* Caso contrario, cuento cuánta gente hay en el arreglo "comparten" de la categoria
     else {
       let nuevaCategoria = {
+        ...categoria,
         cantidad: categoria.comparten.length,
-        categoria,
       }
       return nuevaCategoria;
     }

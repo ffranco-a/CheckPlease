@@ -37,7 +37,7 @@ function Consumo({ categoria, categorias, setCategorias, grupo }) {
       {!categoria.todes && (
         <div>
           <hr className='my-2' />
-          ¿Quiénes consumieron <span className='capitalize italic'>{categoria.detalle}</span>?
+          ¿Quiénes compartieron <span className='capitalize italic'>{categoria.detalle}</span>?
           {grupo.personas.map((persona) => (
             <div key={persona.id}>
               <ConsumoSelectorPersona
