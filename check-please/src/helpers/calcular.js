@@ -1,4 +1,5 @@
 import calcularTotalPorCategoria from './totalPorCategoria';
+import calcularCuantasPersonas from './cuantasPersonas';
 
 const calcular = (grupo, gastos, categorias, todesCompartenTodo) => {
   console.log('grupo : ', grupo); // DELETE DELETE DELETE
@@ -26,14 +27,18 @@ const calcular = (grupo, gastos, categorias, todesCompartenTodo) => {
     //* De haber más de un gasto por categoría, los unifico
     const totalPorCategoria = calcularTotalPorCategoria(gastos);
   
-    //*
-  
+    //* Establecer cuánta gente consumió cada categoría por separado
+    const categoriasConCantidad = calcularCuantasPersonas(categorias, grupo.cantidad);
+    
     const resultados = {
       total,
       divisionTradicional,
+      todesCompartenTodo,
       totalPorCategoria,
+      categoriasConCantidad,
     };
-  
+    
+    console.log(resultados); // DELETE DELETE DELETE
     return resultados;
   }
 

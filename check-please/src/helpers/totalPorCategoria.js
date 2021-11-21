@@ -1,4 +1,4 @@
-const calcularGastosPorCategoria = (gastos) => {
+const calcularTotalPorCategoria = (gastos) => {
   let gastosPorCategoria = [];
   let gastosDetalle = [];
 
@@ -29,4 +29,4 @@ const calcularGastosPorCategoria = (gastos) => {
   return gastosPorCategoria;
 };
 
-export default calcularGastosPorCategoria;
+export default calcularTotalPorCategoria;
