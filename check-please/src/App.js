@@ -6,6 +6,12 @@ import Resultados from './components/Resultados';
 import calcular from './helpers/calcular';
 
 function App() {
+  //* Booleano que indica si es una reunión de tipo Salida (sin gastos individuales que computar)
+  const [reunionTipoSalida, setReunionTipoSalida] = useState(null);
+
+  //* Booleano que indica si todes en el grupo consumieron todas las categorias
+  const [todesCompartenTodo, setTodesCompartenTodo] = useState(null);
+
   //* Array con los nombres de las personas en el grupo
   const [grupo, setGrupo] = useState({ cantidad: 0, personas: [] });
 
@@ -15,10 +21,7 @@ function App() {
   //* Array con las categorias a subdividir por consumo
   const [categorias, setCategorias] = useState([]);
 
-  //* Booleano que indica si todes en el grupo consumieron todas las categorias
-  const [todesCompartenTodo, setTodesCompartenTodo] = useState(null);
-
-  //* Objeto con los resultados
+  //* Objeto con los resultados que se computarán con toda la información dada
   const [resultados, setResultados] = useState({});
 
   //* Función que agrega personas al array `grupo` de personas
@@ -36,7 +39,7 @@ function App() {
   //* llamar a la función para calcular
   const handleCalcular = (e) => {
     e.preventDefault();
-    setResultados(calcular(grupo, gastos, todesCompartenTodo, categorias));
+    setResultados(calcular(reunionTipoSalida, todesCompartenTodo, grupo, gastos, categorias));
   };
 
   return (

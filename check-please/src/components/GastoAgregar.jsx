@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import currency from 'currency.js';
 
 function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCategorias }) {
   const [gasto, setGasto] = useState({
@@ -18,7 +19,10 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
   //*
   const handleAgregarGasto = (e) => {
     e.preventDefault();
-    agregarGasto(gasto);
+    agregarGasto({
+      ...gasto,
+      monto: currency(gasto.monto).format(),
+    });
     if (gasto.persona !== '' && !grupo.personas.some((persona) => persona.nombre.toLowerCase() === gasto.persona.toLowerCase()))
       agregarPersona(gasto.persona);
     setGasto({

@@ -6,13 +6,18 @@ function Resultados({ resultados }) {
   ) : (
     <div className='flex flex-col'>
       <div>Gasto total = {resultados.total}</div>
-      <div>División tradicional = {resultados.divisionTradicional}</div>
-      {!resultados.todesCompartenTodo && <div className='flex flex-col'>
-        Gastos por Categoría ={' '}
-        {resultados.categoriasConCantidad?.map((categoria) => (
-          <span key={categoria.id} className='capitalize'>{`${categoria.detalle}: $ ${categoria.monto}`}</span>
-        ))}
-      </div>}
+      <div>División tradicional = {resultados.divisionPartesIguales}</div>
+      {!resultados.todesCompartenTodo && (
+        <div className='flex flex-col'>
+          Gastos por Categoría ={' '}
+          {resultados.categorias?.map((categoria) => (
+            <span key={categoria.id}>
+              <span className='capitalize'>{categoria.detalle}:</span> {categoria.monto.format()} , dividido entre <span title={`Compartieron: ${categoria.comparten.personas.join(', ')}`}>{categoria.comparten.cantidad}{' '}
+              personas</span> queda en {categoria.montoIndividual} cada una.
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
