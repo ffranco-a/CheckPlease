@@ -1,6 +1,7 @@
 import calcularTotalPorCategoria from './totalPorCategoria';
 import calcularCuantasPersonas from './cuantasPersonas';
 import calcularGastosIndividuales from './gastosIndividuales';
+import calcularConsumosIndividuales from './consumosIndividuales';
 import currency from 'currency.js';
 
 const calcular = (reunionTipoSalida, todesCompartenTodo, grupo, gastos, categorias) => {
@@ -36,7 +37,9 @@ const calcular = (reunionTipoSalida, todesCompartenTodo, grupo, gastos, categori
   }));
 
   //* Por cada persona del grupo, calcular qué compartió y qué no, para saber cuánto debe poner
+  const grupoConConsumos = calcularConsumosIndividuales(grupo, resultados.categorias);
 
+  console.log('grupoConConsumos en calcular: ',grupoConConsumos);
 
   //* CASO B2 : Si NO es una reunión de tipo salida, hay gastos individuales que restar a los montos obtenidos hasta el momento
   if (!reunionTipoSalida) {
