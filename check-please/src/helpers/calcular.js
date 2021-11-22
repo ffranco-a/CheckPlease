@@ -1,25 +1,21 @@
-import calcularTotalPorCategoria from './totalPorCategoria';
-import calcularCuantasPersonas from './cuantasPersonas';
-import calcularGastosIndividuales from './gastosIndividuales';
-import calcularConsumosIndividuales from './consumosIndividuales';
 import currency from 'currency.js';
 
+//? sub-helpers
+import calcularTotalPorCategoria from './calcularTotalPorCategoria';
+import calcularCuantasPersonas from './calcularCuantasPersonas';
+import calcularGastoIndividual from './calcularGastoIndividual';
+import calcularConsumoIndividual from './calcularConsumoIndividual';
+
 const calcular = (reunionTipoSalida, todesCompartenTodo, grupo, gastos, categorias) => {
-  // console.log('grupo : ', grupo); //! DELETE
-  // console.log('gastos : ', gastos); //! DELETE
-  // console.log('categorias : ', categorias); //! DELETE
-  // console.log('todesCompartenTodo : ', todesCompartenTodo); //! DELETE
 
+  const resultados = {};
+
+  //* Calculo el total gastado, sumando en un reducer todos los gastos efectuados
   const totalGastado = gastos.reduce((acc, cur) => currency(acc).add(cur.monto), 0);
-  const divisionPartesIguales = totalGastado.distribute(grupo.cantidad)[0].format();
+  resultados.total = currency(totalGastado).format();
 
-  let resultados = {
-    total: currency(totalGastado).format(),
-    divisionPartesIguales,
-    todesCompartenTodo,
-    categorias,
-    grupo,
-  };
+  //* Divido el totalGastado en la cantidad de personas que hay en el grupo para obtener la división en partes iguales
+  resultados.divisionPartesIguales = totalGastado.distribute(grupo.cantidad)[0].format();
 
   //* CASO A - todes comparten todo: si se requiere una simple división en partes iguales, retornarla
   if (todesCompartenTodo) return resultados;
@@ -39,16 +35,11 @@ const calcular = (reunionTipoSalida, todesCompartenTodo, grupo, gastos, categori
   }));
 
   //* Por cada persona del grupo, calcular qué compartió y qué no, para saber cuánto debe poner
-  const grupoConConsumos = calcularConsumosIndividuales(grupo, resultados.categorias);
-
-  console.log('grupoConConsumos en calcular: ',grupoConConsumos); //! DELETE
+  let grupoConConsumos = calcularConsumoIndividual(grupo, resultados.categorias);
 
   //* CASO B2 : Si NO es una reunión de tipo salida, hay gastos individuales que restar a los montos obtenidos hasta el momento
   if (!reunionTipoSalida) {
-    
-      const grupoConGastos = calcularGastosIndividuales(grupo, gastos);
-      console.log(grupoConGastos); //! DELETE
-
+    grupoConConsumos = calcularGastoIndividual(grupoConConsumos, gastos);
   }
 
   resultados.grupo = grupoConConsumos;

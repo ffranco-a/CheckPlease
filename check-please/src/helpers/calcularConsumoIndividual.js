@@ -1,7 +1,6 @@
 import currency from 'currency.js';
 
 const calcularConsumosIndividuales = (grupo, categorias) => {
-  console.log('grupo y categorias ', grupo, categorias); //! DELETE
 
   //* añado a todas las personas del grupo un objeto "comparte" donde guardaré todo lo que la persona consumió
   let comparte = {
@@ -12,8 +11,6 @@ const calcularConsumosIndividuales = (grupo, categorias) => {
     ...grupo,
     personas: grupo.personas.map((persona) => ({ ...persona, comparte })),
   };
-
-  console.log('grupo con consumos: ', grupoConConsumos); //! DELETE
 
   //* recorro las categorias, y por cada una de ellas recorro su array de comparten.personas, y le sumo a cada persona el monto que le corresponde
   for (let i = 0; i < categorias.length; i++) {
