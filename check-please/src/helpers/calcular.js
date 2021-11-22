@@ -5,10 +5,10 @@ import calcularConsumosIndividuales from './consumosIndividuales';
 import currency from 'currency.js';
 
 const calcular = (reunionTipoSalida, todesCompartenTodo, grupo, gastos, categorias) => {
-  // console.log('grupo : ', grupo); // DELETE DELETE DELETE
-  // console.log('gastos : ', gastos); // DELETE DELETE DELETE
-  // console.log('categorias : ', categorias); // DELETE DELETE DELETE
-  // console.log('todesCompartenTodo : ', todesCompartenTodo); // DELETE DELETE DELETE
+  // console.log('grupo : ', grupo); //! DELETE
+  // console.log('gastos : ', gastos); //! DELETE
+  // console.log('categorias : ', categorias); //! DELETE
+  // console.log('todesCompartenTodo : ', todesCompartenTodo); //! DELETE
 
   const totalGastado = gastos.reduce((acc, cur) => currency(acc).add(cur.monto), 0);
   const divisionPartesIguales = totalGastado.distribute(grupo.cantidad)[0].format();
@@ -17,6 +17,8 @@ const calcular = (reunionTipoSalida, todesCompartenTodo, grupo, gastos, categori
     total: currency(totalGastado).format(),
     divisionPartesIguales,
     todesCompartenTodo,
+    categorias,
+    grupo,
   };
 
   //* CASO A - todes comparten todo: si se requiere una simple división en partes iguales, retornarla
@@ -39,17 +41,19 @@ const calcular = (reunionTipoSalida, todesCompartenTodo, grupo, gastos, categori
   //* Por cada persona del grupo, calcular qué compartió y qué no, para saber cuánto debe poner
   const grupoConConsumos = calcularConsumosIndividuales(grupo, resultados.categorias);
 
-  console.log('grupoConConsumos en calcular: ',grupoConConsumos);
+  console.log('grupoConConsumos en calcular: ',grupoConConsumos); //! DELETE
 
   //* CASO B2 : Si NO es una reunión de tipo salida, hay gastos individuales que restar a los montos obtenidos hasta el momento
   if (!reunionTipoSalida) {
     
       const grupoConGastos = calcularGastosIndividuales(grupo, gastos);
-      console.log(grupoConGastos); // DELETE DELETE DELETE
+      console.log(grupoConGastos); //! DELETE
 
   }
 
-  console.log(resultados); // DELETE DELETE DELETE
+  resultados.grupo = grupoConConsumos;
+
+  console.log(resultados); //! DELETE
   return resultados;
 };
 

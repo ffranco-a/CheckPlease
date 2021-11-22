@@ -9,7 +9,11 @@ function Persona({ persona, borrarPersona }) {
         {persona.nombre}
         {/* , id: {persona.id} */}
       </span>
-      <button title={`Eliminar a ${persona.nombre} del grupo`} onClick={() => borrarPersona(persona)} className='h-4 w-4 absolute top-0 right-0 rounded-full bg-red-300 transition-all hover:bg-red-400' />
+      <button
+        title={`Eliminar a ${persona.nombre} del grupo`}
+        onClick={() => borrarPersona(persona)}
+        className='h-4 w-4 absolute top-0 right-0 rounded-full bg-red-300 transition-all hover:bg-red-400'
+      />
     </div>
   );
 }
