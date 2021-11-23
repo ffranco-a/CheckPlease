@@ -85,3 +85,54 @@ preguntar si todes consumieron todo (dividir la cuenta en partes iguales, tantas
 - Linkear con _How to split the check w/John Wilson_
 
 <hr />
+
+<!--
+opciones paleta de colores 
+
+#303841 #47555E #345B63 #E8ECF1 ( #556E53 #515748 )
+#303841 #47555E #1E5F74 #E8ECF1 ( #556E53 #515748 )
+
+
+#769FCD #B9D7EA #D6E6F2 #F7FBFC
+https://colorhunt.co/palette/f7fbfcd6e6f2b9d7ea769fcd
+
+#6C737E #7393A7 #B5CFD8 #E8ECF1
+https://colorhunt.co/palette/e8ecf1b5cfd87393a76c737e
+
+
+#112031 #152D35 #345B63 #D4ECDD
+https://colorhunt.co/palette/d4ecdd345b63152d35112031
+
+
+#27332D #515748 #FADB3F #ECF7C5
+https://colorhunt.co/palette/fadb3fecf7c551574827332d
+
+#4B6587 #C8C6C6 #F0E5CF #F7F6F2
+https://colorhunt.co/palette/f0e5cff7f6f2c8c6c64b6587
+
+#334257 #476072 #548CA8 #EEEEEE
+https://colorhunt.co/palette/334257476072548ca8eeeeee
+
+#233b6e #415f9d #d3d6db #eff0f4
+https://colorhunt.co/palette/eff0f4d3d6db415f9d233b6e
+
+#303841 #47555E #7AA5D2 #EEEEEE
+https://colorhunt.co/palette/30384147555e7aa5d2eeeeee
+
+#152A38 #29435C #556E53 #D1D4C9
+https://colorhunt.co/palette/152a3829435c556e53d1d4c9
+
+#303841 #47555E #29435C #E8ECF1
+
+
+
+#1E5F74
+
+#D89216
+
+#E79E4F
+
+#FA7D09
+
+#FDB827
+-->

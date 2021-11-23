@@ -1,6 +1,6 @@
 import currency from 'currency.js';
 
-//? sub-helpers
+//? importo los sub-helpers
 import calcularTotalPorCategoria from './calcularTotalPorCategoria';
 import calcularCuantasPersonas from './calcularCuantasPersonas';
 import calcularGastoIndividual from './calcularGastoIndividual';
