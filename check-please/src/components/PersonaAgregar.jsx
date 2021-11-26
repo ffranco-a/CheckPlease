@@ -9,12 +9,12 @@ function AgregarPersonas({ agregarPersona, setMostrarInput }) {
 
   const handleAgregarPersona = (e) => {
     e.preventDefault();
-    agregarPersona(nombre);
+    agregarPersona(nombre.toLowerCase());
     setNombre('');
   };
 
   const handleDisableButton = () => {
-    if (nombre.length >= 2) return false;
+    if (nombre.length >= 1) return false;
     return true;
   };
 

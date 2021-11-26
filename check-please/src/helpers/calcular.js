@@ -8,7 +8,10 @@ import calcularConsumoIndividual from './calcularConsumoIndividual';
 
 const calcular = (reunionTipoSalida, todesCompartenTodo, grupo, gastos, categorias) => {
 
-  const resultados = {};
+  const resultados = {
+    reunionTipoSalida,
+    todesCompartenTodo,
+  };
 
   //* Calculo el total gastado, sumando en un reducer todos los gastos efectuados
   const totalGastado = gastos.reduce((acc, cur) => currency(acc).add(cur.monto), 0);
@@ -17,10 +20,10 @@ const calcular = (reunionTipoSalida, todesCompartenTodo, grupo, gastos, categori
   //* Divido el totalGastado en la cantidad de personas que hay en el grupo para obtener la división en partes iguales
   resultados.divisionPartesIguales = totalGastado.distribute(grupo.cantidad)[0].format();
 
-  //* CASO A - todes comparten todo: si se requiere una simple división en partes iguales, retornarla
-  if (todesCompartenTodo) return resultados;
+  //* CASO A1 - todes comparten todo y no hay gastos previos que computar: se requiere una simple división en partes iguales, la cuál ya se hizo, así que la devuelvo
+  if (todesCompartenTodo && reunionTipoSalida) return resultados;
 
-  //* CASO B - no todes comparten todo: se requiere una división más específica, así que a realizar esos cálculos:
+  //* CASO A2 y B1 - no todes comparten todo: se requiere una división más específica, así que a realizar esos cálculos:
 
   //* Sumo los gastos por categoría (contemplo el caso que haya más de un gasto por categoría)
   const categoriasConMonto = calcularTotalPorCategoria(gastos, categorias);

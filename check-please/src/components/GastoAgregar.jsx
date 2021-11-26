@@ -20,11 +20,12 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
   const handleAgregarGasto = (e) => {
     e.preventDefault();
     agregarGasto({
-      ...gasto,
+      persona: gasto.persona.toLowerCase(),
+      detalle: gasto.detalle.toLowerCase(),
       monto: currency(gasto.monto).format(),
     });
-    if (gasto.persona !== '' && !grupo.personas.some((persona) => persona.nombre.toLowerCase() === gasto.persona.toLowerCase()))
-      agregarPersona(gasto.persona);
+    if (gasto.persona !== '' && !grupo.personas.some((persona) => persona.nombre === gasto.persona.toLowerCase()))
+      agregarPersona(gasto.persona.toLowerCase());
     setGasto({
       ...gasto,
       monto: 0,

@@ -21,12 +21,12 @@ function App() {
   //* Array con las categorias a subdividir por consumo
   const [categorias, setCategorias] = useState([]);
 
-  //* Objeto con los resultados que se computarán con toda la información dada
+  //* Objeto con los resultados que se computarán con toda la información de arriba
   const [resultados, setResultados] = useState({});
 
   //* Función que agrega personas al array `grupo` de personas
   const handleAgregarPersona = (nombre) => {
-    if (grupo.personas.some((persona) => persona.nombre.toLowerCase() === nombre.toLowerCase())) {
+    if (grupo.personas.some((persona) => persona.nombre === nombre)) {
       alert(`Los nombres de las personas deben ser únicos`);
       return;
     } else {
