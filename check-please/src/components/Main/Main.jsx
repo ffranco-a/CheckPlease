@@ -18,7 +18,7 @@ function Main({
   handleCalcular,
 }) {
   return (
-    <div className='w-full max-w-screen-sm flex justify-center mx-auto p-2'>
+    <div className='display'>
       <div className='flex flex-col'>
         <div>
           <Personas grupo={grupo} setGrupo={setGrupo} agregarPersona={handleAgregarPersona} gastos={gastos} />
