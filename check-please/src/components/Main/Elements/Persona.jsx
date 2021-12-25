@@ -1,10 +1,10 @@
 import React from 'react';
-import userLogo from '../images/user.svg';
+// import userLogo from 'static/images/user.svg';
 
 function Persona({ persona, borrarPersona }) {
   return (
     <div className='p-2 min-w-logo h-14 flex flex-col items-center justify-center bg-gray-300 rounded-full relative'>
-      <img src={userLogo} alt='user logo' className='w-6 h-6' />
+      <img src="static/images/user.svg" alt='user logo' className='w-6 h-6' />
       <span className='capitalize text-sm relative bottom-1'>
         {persona.nombre}
         {/* , id: {persona.id} */}

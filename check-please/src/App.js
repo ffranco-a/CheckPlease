@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import Consumos from './components/Consumos';
-import Gastos from './components/Gastos';
-import Personas from './components/Personas';
-import Resultados from './components/Resultados';
+import { Route, Routes } from 'react-router-dom';
+
+//? Components
+import Landing from './components/Landing/Landing';
+import Main from './components/Main/Main';
+import Resultados from './components/Resultados/Resultados';
+
+//? Helpers
 import calcular from './helpers/calcular';
 
 function App() {
@@ -43,26 +47,39 @@ function App() {
   };
 
   return (
-    <div className='w-full max-w-screen-sm flex justify-center mx-auto p-2'>
-      <div className='flex flex-col'>
-        <div>
-          <Personas grupo={grupo} setGrupo={setGrupo} agregarPersona={handleAgregarPersona} gastos={gastos} />
-          <Gastos
+    <Routes>
+      <Route
+        exact
+        path='/'
+        element={
+          <Landing
+            reunionTipoSalida={reunionTipoSalida}
+            setReunionTipoSalida={setReunionTipoSalida}
+            todesCompartenTodo={todesCompartenTodo}
+            setTodesCompartenTodo={setTodesCompartenTodo}
+          />
+        }
+      />
+      <Route
+        exact
+        path='/main'
+        element={
+          <Main
             grupo={grupo}
+            setGrupo={setGrupo}
+            handleAgregarPersona={handleAgregarPersona}
             gastos={gastos}
             setGastos={setGastos}
             categorias={categorias}
             setCategorias={setCategorias}
-            agregarPersona={handleAgregarPersona}
+            todesCompartenTodo={todesCompartenTodo}
+            setTodesCompartenTodo={setTodesCompartenTodo}
+            handleCalcular={handleCalcular}
           />
-          <Consumos categorias={categorias} setCategorias={setCategorias} grupo={grupo} todes={todesCompartenTodo} setTodes={setTodesCompartenTodo} />
-          <button className='rounded-md p-4 mx-auto my-4 w-full bg-blue-400 transition-all hover:bg-blue-200' onClick={handleCalcular}>
-            Calcular
-          </button>
-        </div>
-        {/* <Resultados resultados={resultados} todesCompartenTodo={todesCompartenTodo} /> */}
-      </div>
-    </div>
+        }
+      />
+      <Route path='/results' exact element={<Resultados resultados={resultados} />} />
+    </Routes>
   );
 }
 
