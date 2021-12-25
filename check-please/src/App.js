@@ -60,7 +60,7 @@ function App() {
             Calcular
           </button>
         </div>
-        <Resultados resultados={resultados} todesCompartenTodo={todesCompartenTodo} />
+        {/* <Resultados resultados={resultados} todesCompartenTodo={todesCompartenTodo} /> */}
       </div>
     </div>
   );

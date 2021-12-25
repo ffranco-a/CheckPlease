@@ -1,6 +1,6 @@
 import currency from 'currency.js';
 
-const calcularGastosIndividuales = (grupo, gastos) => {
+const calcularGastosIndividuales = (grupo, gastos, montoIndividual) => {
 
   //* agrego a cada persona una propiedad "puso", donde sumaré el total de los gastos realizados por esa persona
   let grupoConGastos = {
@@ -21,7 +21,7 @@ const calcularGastosIndividuales = (grupo, gastos) => {
   //* Ya con todos los gastos por persona sumados, calculo la diferencia entre lo que puso y lo que consumió. De paso formateo la propiedad "puso" para que no sea un objeto currency sino un valor legible.
   grupoConGastos.personas = grupoConGastos.personas.map((persona) => ({
     ...persona,
-    debe: currency(persona.comparte.total).subtract(persona.puso).format(),
+    debe: montoIndividual ? currency(montoIndividual).subtract(persona.puso).format() : currency(persona.comparte.total).subtract(persona.puso).format(),
     puso: currency(persona.puso).format(),
   }));
 
