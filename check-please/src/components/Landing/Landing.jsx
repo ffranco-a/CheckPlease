@@ -1,38 +1,46 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 //? Components
 import LandingButton from './Elements/LandingButton';
+import Button from '../Elements/Button';
 
 function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, setTodesCompartenTodo }) {
+  const navigate = useNavigate();
+
+  const disableButton = () => {
+    if (typeof reunionTipoSalida === 'boolean' && typeof todesCompartenTodo === 'boolean') return false;
+    return true;
+  };
+
   return (
-    <div className='display bg-medium w-screen h-screen'>
+    <div className='display bg-medium w-screen min-h-screen tablet:flex tablet:flex-col tablet:justify-center'>
       <h1>Check Please</h1>
 
-      <div className='animate-fadein'>
+      <div className='animate-fadein my-6'>
         <p>¿Todes compartieron todo lo consumido?</p>
         <LandingButton
           texto='Sí'
           descripcion='Todes compartimos todo.'
-          ejemplo='Hay que dividir la cuenta en partes iguales.'
+          ejemplo='Dividir la cuenta en partes iguales.'
           active={todesCompartenTodo === true}
           onClick={() => setTodesCompartenTodo(true)}
         />
         <LandingButton
           texto='No'
-          descripcion='Dividir la cuenta de acuerdo al consumo.'
+          descripcion='Dividir la cuenta de acuerdo al consumo individual.'
           ejemplo='ej. Personas vegetarianas no deberían pagar por carne.'
           active={todesCompartenTodo === false}
           onClick={() => setTodesCompartenTodo(false)}
         />
       </div>
 
-      {typeof todesCompartenTodo === 'boolean' && (
-        <div className='animate-fadein'>
+      {typeof todesCompartenTodo === 'boolean' ? (
+        <div className='animate-fadein my-6'>
           <p>¿Se realizaron gastos previos?</p>
           <LandingButton
             texto='Sí'
-            descripcion='Algunas personas ya compraron cosas y hay que dividir esos gastos.'
+            descripcion='Algunas personas ya compraron cosas.'
             ejemplo='ej: Camila trajo bebida, Luciano trajo postre, etc.'
             active={reunionTipoSalida === true}
             onClick={() => setReunionTipoSalida(true)}
@@ -45,11 +53,18 @@ function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, 
             onClick={() => setReunionTipoSalida(false)}
           />
         </div>
+      ) : (
+        <div className='invisible my-6'>
+          <p>¿Se realizaron gastos previos?</p>
+          <LandingButton
+            descripcion='Algunas personas ya compraron cosas y hay que dividir esos gastos.'
+            ejemplo='ej: Camila trajo bebida, Luciano trajo postre, etc.'
+          />
+          <LandingButton descripcion='No se realizaron gastos previos.' ejemplo='ej: Hay que pagar una cuenta en un restaurante.' />
+        </div>
       )}
 
-      <Link to='/main'>
-        <button>Continuar</button>
-      </Link>
+      <Button text='Continuar' disabled={disableButton()} onClick={() => navigate('/main')} />
     </div>
   );
 }

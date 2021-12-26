@@ -12,6 +12,8 @@ module.exports = {
         medium: '#47555E',
         light: '#E8ECF1',
         primary: '#1E5F74',
+        primaryLight: '#4D8191',
+        complementary: '#4B4B4B',
       },
       keyframes: {
         wiggle: {
