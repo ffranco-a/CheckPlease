@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 //? Components
-import Landing from './components/Landing/Landing';
-import Main from './components/Main/Main';
-import Resultados from './components/Resultados/Resultados';
+import Landing from './pages/Landing';
+import Main from './pages/Main';
+import Resultados from './pages/Results';
 
 //? Helpers
 import calcular from './helpers/calcular';
@@ -16,7 +16,7 @@ function App() {
   //* Booleano que indica si todes en el grupo consumieron todas las categorias
   const [todesCompartenTodo, setTodesCompartenTodo] = useState(null);
 
-  //* Array con los nombres de las personas en el grupo
+  //* Objeto con la cantidad de personas en el grupo y array sus nombres
   const [grupo, setGrupo] = useState({ cantidad: 0, personas: [] });
 
   //* Array con los gastos individuales realizados

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Resultados({ resultados }) {
+function Results({ resultados }) {
   return resultados.total === undefined ? (
     <div>Esperando datos...</div>
   ) : (
@@ -41,4 +41,4 @@ function Resultados({ resultados }) {
   );
 }
 
-export default Resultados;
+export default Results;

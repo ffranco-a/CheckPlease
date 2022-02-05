@@ -1,9 +1,9 @@
 import React from 'react';
 
 //? Components
-import Consumos from './Elements/Consumos';
-import Gastos from './Elements/Gastos';
-import Personas from './Elements/Personas';
+import Consumos from '../components/main/Consumos';
+import Gastos from '../components/main/Gastos';
+import Personas from '../components/main/Personas';
 
 function Main({
   grupo,
