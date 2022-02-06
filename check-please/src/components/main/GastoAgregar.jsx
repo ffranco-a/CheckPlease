@@ -3,7 +3,7 @@ import currency from 'currency.js';
 
 function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCategorias }) {
   const [gasto, setGasto] = useState({
-    monto: 0,
+    monto: '',
     detalle: '',
     persona: '',
   });
@@ -28,7 +28,7 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
       agregarPersona(gasto.persona.toLowerCase());
     setGasto({
       ...gasto,
-      monto: 0,
+      monto: '',
       detalle: '',
       persona: '',
     });

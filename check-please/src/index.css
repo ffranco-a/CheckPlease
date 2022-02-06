@@ -36,11 +36,11 @@ body {
 }
 
 .custom-table-cell {
-  @apply bg-primary py-1 px-1.5 box-border;
+  @apply bg-primary py-1 px-1.5 box-border mx-0;
 }
 
 .custom-table-left-side {
-  border-radius: 3px 0 0 3px;
+  border-radius: 4px 0 0 4px;
 }
 
 .custom-table-left-column {
@@ -55,7 +55,7 @@ body {
 }
 
 .custom-table-right-side {
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 4px 4px 0;
 }
 
 .custom-table-top-cell {
