@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 //? Components
 import LandingButton from '../components/landing/LandingButton';
+
 import Button from '../components/elements/Button';
 
 function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, setTodesCompartenTodo }) {
