@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //? Components
@@ -25,6 +25,10 @@ function Main({
     if (grupo.cantidad >= 2 && gastos.length >= 1) return false;
     return true;
   };
+
+  useEffect(() => {
+    if (todesCompartenTodo === null) setTodesCompartenTodo(false);
+  }, [])
 
   return (
     <div className='display bg-medium w-screen min-h-screen tablet:flex tablet:flex-col tablet:justify-center'>

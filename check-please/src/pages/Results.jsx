@@ -1,8 +1,14 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Results({ resultados }) {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname.includes('results') && resultados.total === undefined) navigate('/main');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className='display bg-medium w-screen min-h-screen tablet:flex tablet:flex-col tablet:justify-center'>
@@ -16,15 +22,15 @@ function Results({ resultados }) {
         <>
           <div>Gasto total = {resultados.total}</div>
           <div>
-            División entre {resultados.grupo.cantidad} personas = {resultados.divisionPartesIguales}
+            División tradicional entre todas las personas del grupo ({resultados.grupo.cantidad}) = {resultados.divisionPartesIguales}.
           </div>
           <hr />
           {!resultados.todesCompartenTodo && (
-            <div className='flex flex-col'>
-              CATEGORIAS ={' '}
+            <div className='flex flex-col my-4'>
+              CATEGORÍAS:{' '}
               {resultados.categorias?.map((categoria) => (
                 <span key={categoria.id}>
-                  <span className='capitalize'>{categoria.detalle}:</span> {categoria.monto.format()} , dividido entre{' '}
+                  <span className='capitalize'>{categoria.detalle}:</span> {categoria.monto.format()}, dividido entre{' '}
                   <span className='underline cursor-pointer' title={`Compartieron: ${categoria.comparten.personas.join(', ')}`}>
                     {categoria.comparten.cantidad} personas
                   </span>{' '}
@@ -34,27 +40,25 @@ function Results({ resultados }) {
             </div>
           )}
           <hr />
-          PERSONA POR PERSONA ={' '}
+          <br />
+          PERSONA POR PERSONA:{' '}
           {resultados.grupo.personas.map((persona) => (
-            <div key={persona.id}>
+            <div key={persona.id} className='my-3'>
+              <span className='capitalize font-bold underline'>{persona.nombre}</span>{' '}
+              {persona.puso === '$0.00' ? `no puso nada` : `puso ${persona.puso}`} y consumió un total de {persona.comparte?.total}.
               <br />
-              <span className='capitalize font-bold'>{persona.nombre}</span> consumió un total de {persona.comparte?.total}
-              <br />
+              Por lo tanto,{' '}
               {persona.puso === '$0.00' ? (
-                <span>
-                  {' '}
-                  y como no puso nada <span className='font-bold'>ese es el monto que debe poner al fondo común ({persona.debe}).</span>
+                <span className='font-bold'>
+                  debe poner <span className='underline'>{persona.debe}</span> en el fondo común.
                 </span>
               ) : persona.debe.includes('-') ? (
-                <span>
-                  {' '}
-                  pero como puso más que eso (puso {persona.puso} en total),{' '}
-                  <span className='font-bold'>debe sacar {persona.debe.substring(1)} del fondo común.</span>
+                <span className='font-bold'>
+                  tiene que sacar <span className='underline'>{persona.debe.substring(1)}</span> del fondo común.
                 </span>
               ) : (
-                <span>
-                  {' '}
-                  pero como puso {persona.puso} <span className='font-bold'>debe poner solo {persona.debe} en el fondo común.</span>
+                <span className='font-bold'>
+                  debe poner solo <span className='underline'>{persona.debe}</span> en el fondo común ({persona.comparte?.total} - {persona.puso})
                 </span>
               )}
             </div>
