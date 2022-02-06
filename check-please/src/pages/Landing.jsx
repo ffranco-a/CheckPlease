@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //? Components
-import LandingButton from '../components/landing/LandingButton';
-import Button from '../components/elements/Button';
+import LandingButton from '../components/landing/LandingButton.jsx';
+import Button from '../components/elements/Button.jsx';
 
 function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, setTodesCompartenTodo }) {
   const navigate = useNavigate();
