@@ -1,6 +1,6 @@
 import React from 'react';
 
-import check from '../static/images/landing-check.svg';
+import check from '../../static/images/landing-check.svg';
 
 function CheckIcon() {
   return (
