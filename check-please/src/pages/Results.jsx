@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Results({ resultados }) {
-  console.log('resultados: ',resultados) //! DELETE
   const navigate = useNavigate();
 
   return (
