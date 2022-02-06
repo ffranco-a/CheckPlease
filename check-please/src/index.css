@@ -7,13 +7,59 @@
 body {
   margin: 0;
   font-family: 'Amaranth', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
+  'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #DEE4EB;
 }
 
 .display {
   @apply w-full max-w-screen-sm mx-auto p-2 text-base tablet:text-lg;
+}
+
+.disabled-button {
+  filter: grayscale(1);
+  opacity: .5;
+  cursor: default;
+}
+
+.enabled-button:hover {
+  filter: brightness(1.05);
+}
+
+.button {
+  @apply rounded-md p-4 my-4 w-full bg-primary transition-all; /* TODO: customize */
+}
+
+.input-style {
+  @apply bg-text text-primary px-1 rounded-md;
+}
+
+.custom-table-cell {
+  @apply bg-primary py-1 px-1.5 box-border;
+}
+
+.custom-table-left-side {
+  border-radius: 3px 0 0 3px;
+}
+
+.custom-table-left-column {
+  border-right: 2px solid #1E5F74;
+}
+.custom-table-center-column {
+  border-right: 2px solid #1E5F74;
+  border-left: 3px solid #164655;
+}
+.custom-table-right-column {
+  border-left: 3px solid #164655;
+}
+
+.custom-table-right-side {
+  border-radius: 0 3px 3px 0;
+}
+
+.custom-table-top-cell {
+  border-top: 2px solid #303841;
 }
 
 code {

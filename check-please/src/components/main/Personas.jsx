@@ -26,7 +26,7 @@ function Personas({ grupo, setGrupo, agregarPersona, gastos }) {
   };
 
   return (
-    <fieldset className='border border-solid border-gray-300 px-3 py-1 rounded-lg'>
+    <fieldset className='bg-dark text-text px-3 py-1 rounded-lg'>
       <legend>Grupo</legend>
       <div className='flex justify-center gap-4 my-2 overflow-x-auto'>
         {/* ↓ por cada persona en el array de personas muestro su nombre y opciones como editar el nombre o eliminarla */}

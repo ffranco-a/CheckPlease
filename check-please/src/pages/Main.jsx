@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 //? Components
 import Consumos from '../components/main/Consumos';
@@ -17,10 +18,21 @@ function Main({
   setTodesCompartenTodo,
   handleCalcular,
 }) {
+
+  const navigate = useNavigate();
+
+  const disabledCalculateButton = () => {
+    if (grupo.cantidad >= 2 && gastos.length >= 1) return false;
+    return true;
+  };
+
   return (
-    <div className='display'>
-      <div className='flex flex-col'>
-        <div>
+    <div className='display bg-medium w-screen min-h-screen tablet:flex tablet:flex-col tablet:justify-center'>
+      <span className='underline cursor-pointer' onClick={() => navigate('/')}>
+        volver al landing
+      </span>
+      {/* <div className='flex flex-col'>
+        <div> */}
           <Personas grupo={grupo} setGrupo={setGrupo} agregarPersona={handleAgregarPersona} gastos={gastos} />
           <Gastos
             grupo={grupo}
@@ -37,12 +49,12 @@ function Main({
             todes={todesCompartenTodo}
             setTodes={setTodesCompartenTodo}
           />
-          <button className='rounded-md p-4 mx-auto my-4 w-full bg-blue-400 transition-all hover:bg-blue-200' onClick={handleCalcular}>
+          <button disabled={disabledCalculateButton()} className={`${disabledCalculateButton() ? 'disabled-button' : 'enabled-button'} button`} onClick={handleCalcular}>
             Calcular
           </button>
-        </div>
+        {/* </div> */}
         {/* <Resultados resultados={resultados} todesCompartenTodo={todesCompartenTodo} /> */}
-      </div>
+      {/* </div> */}
     </div>
   );
 }

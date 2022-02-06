@@ -27,7 +27,7 @@ function Consumo({ categoria, categorias, setCategorias, grupo }) {
   };
 
   return (
-    <div className='p-2 flex flex-col bg-gray-300 rounded-md'>
+    <div className='p-2 flex flex-col bg-primary text-text rounded-md'>
       <span className='capitalize font-bold text-center'>{categoria.detalle}</span>
       {/* <label>
         <input type='checkbox' checked={categoria.todes} onChange={() => handleTodes(categoria.id)} />

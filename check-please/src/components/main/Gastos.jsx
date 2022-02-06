@@ -40,7 +40,7 @@ function Gastos({ gastos, setGastos, grupo, agregarPersona, categorias, setCateg
   };
 
   return (
-    <fieldset className='border border-solid border-gray-300 p-3 rounded-lg'>
+    <fieldset className='bg-dark text-text p-3 rounded-lg'>
       <legend>Gastos</legend>
       <GastoAgregar agregarGasto={handleAgregarGasto} grupo={grupo} agregarPersona={agregarPersona} categorias={categorias} setCategorias={setCategorias} />
       {/* ↓ por cada gasto en el array de gastos muestro el detalle, el monto y un botón para eliminarlo */}

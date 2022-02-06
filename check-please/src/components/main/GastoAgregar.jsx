@@ -32,6 +32,7 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
       detalle: '',
       persona: '',
     });
+    document.getElementById('focus-me').focus();
   };
 
   const handleDisableButton = () => {
@@ -40,50 +41,36 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
   };
 
   return (
-    <div>
-      <form onSubmit={handleAgregarGasto}>
-        <label>
-          Realizado por
-          <input
-            type='text'
-            name='persona'
-            list='persona'
-            value={gasto.persona}
-            onChange={handleNuevoGasto}
-            className='px-1 mx-1 rounded-md border-2 border-gray-400'
-          />
+    <div className='box-border'>
+      <form onSubmit={handleAgregarGasto} className='grid grid-cols-3-expenses'>
+        <label className='custom-table-left-column custom-table-top-cell'>
+          <span className='ml-2'>Realizado por</span>
+          <div className='custom-table-cell custom-table-left-side'>
+            <input type='text' id='focus-me' autoFocus name='persona' list='persona' value={gasto.persona} onChange={handleNuevoGasto} className='input-style w-full' />
+          </div>
         </label>
         <datalist id='persona' className='capitalize'>
           {grupo.cantidad > 0 && grupo.personas.map((persona, i) => <option key={i} value={persona.nombre} className='capitalize' />)}
         </datalist>
 
-        <label>
-          Monto
-          <input
-            type='number'
-            name='monto'
-            value={gasto.monto}
-            onChange={handleNuevoGasto}
-            className='px-1 mx-1 w-20 rounded-md border-2 border-gray-400'
-          />
+        <label className='custom-table-center-column custom-table-top-cell'>
+          <span className='ml-2'>Monto</span>
+          <div className='custom-table-cell'>
+            <input type='number' name='monto' value={gasto.monto} onChange={handleNuevoGasto} className='input-style w-full' />
+          </div>
         </label>
 
-        <label>
-          Detalle
-          <input
-            type='text'
-            name='detalle'
-            list='detalle'
-            value={gasto.detalle}
-            onChange={handleNuevoGasto}
-            className='px-1 mx-1 rounded-md border-2 border-gray-400'
-          />
+        <label className='custom-table-right-column custom-table-top-cell'>
+          <span className='ml-2'>Detalle</span>
+          <div className='custom-table-cell custom-table-right-side'>
+            <input type='text' name='detalle' list='detalle' value={gasto.detalle} onChange={handleNuevoGasto} className='input-style w-full' />
+          </div>
         </label>
         <datalist id='detalle' className='capitalize'>
           {categorias.length > 0 && categorias.map((categoria, i) => <option key={i} value={categoria.detalle} className='capitalize' />)}
         </datalist>
 
-        <button type='submit' disabled={handleDisableButton()} className='p-1 bg-green-400 rounded-md'>
+        <button type='submit' disabled={handleDisableButton()} className='bg-green-400 rounded-md'>
           Agregar
         </button>
       </form>

@@ -11,9 +11,14 @@ module.exports = {
         dark: '#303841',
         medium: '#47555E',
         light: '#E8ECF1',
+        text: '#DEE4EB',
         primary: '#1E5F74',
-        primaryLight: '#4D8191',
+        'primary-dark': '#164655',
+        'primary-light': '#4D8191',
         complementary: '#4B4B4B',
+      },
+      gridTemplateColumns: {
+        '3-expenses': '35% 25% 35% 5%',
       },
       keyframes: {
         wiggle: {

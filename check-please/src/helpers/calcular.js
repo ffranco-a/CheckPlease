@@ -6,7 +6,7 @@ import calcularCuantasPersonas from './calcularCuantasPersonas';
 import calcularGastoIndividual from './calcularGastoIndividual';
 import calcularConsumoIndividual from './calcularConsumoIndividual';
 
-const calcular = (reunionTipoSalida, todesCompartenTodo, grupo, gastos, categorias) => {
+const calcular = (reunionTipoSalida = false, todesCompartenTodo = false, grupo, gastos, categorias) => {
 
   const resultados = {
     reunionTipoSalida,

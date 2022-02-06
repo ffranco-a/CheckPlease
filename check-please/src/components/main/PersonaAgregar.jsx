@@ -21,7 +21,7 @@ function AgregarPersonas({ agregarPersona, setMostrarInput }) {
   return (
     <div className='flex justify-center'>
       <form onSubmit={handleAgregarPersona}>
-        <input type='text' autoFocus value={nombre} onChange={handleNuevaPersona} className='px-1 mr-1 rounded-md border-2 border-gray-400' />
+        <input type='text' autoFocus value={nombre} onChange={handleNuevaPersona} className='input-style mr-1' />
         <button type='submit' disabled={handleDisableButton()} className='p-1 mx-1 bg-green-400 rounded-md'>
           Agregar
         </button>

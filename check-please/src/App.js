@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 //? Components
 import Landing from './pages/Landing';
@@ -40,10 +40,15 @@ function App() {
     }
   };
 
+  const navigate = useNavigate();
+
   //* llamar a la función para calcular
   const handleCalcular = (e) => {
     e.preventDefault();
-    setResultados(calcular(reunionTipoSalida, todesCompartenTodo, grupo, gastos, categorias));
+
+    // setResultados(calcular(reunionTipoSalida, todesCompartenTodo, grupo, gastos, categorias)); //* ← este es el real
+    setResultados(calcular(reunionTipoSalida, false, grupo, gastos, categorias)); //TODO refactor. solo es versión estable para deployar
+    navigate('/results');
   };
 
   return (
