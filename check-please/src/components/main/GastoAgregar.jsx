@@ -70,9 +70,7 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
           {categorias.length > 0 && categorias.map((categoria, i) => <option key={i} value={categoria.detalle} className='capitalize' />)}
         </datalist>
 
-        <button type='submit' disabled={handleDisableButton()} className='bg-green-400 rounded-md'>
-          Agregar
-        </button>
+        <input type='submit' value='Agregar' disabled={handleDisableButton()} className='bg-green-400 rounded-md overflow-hidden' />
       </form>
     </div>
   );

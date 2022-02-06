@@ -28,7 +28,7 @@ function Personas({ grupo, setGrupo, agregarPersona, gastos }) {
   return (
     <fieldset className='bg-dark text-text px-3 py-1 rounded-lg'>
       <legend>Grupo</legend>
-      <div className='flex justify-center gap-4 my-2 overflow-x-auto'>
+      <div className='flex justify-center gap-4 my-2 overflow-x-auto flex-wrap'>
         {/* ↓ por cada persona en el array de personas muestro su nombre y opciones como editar el nombre o eliminarla */}
         {grupo.cantidad > 0 &&
           grupo.personas.map((persona) => (

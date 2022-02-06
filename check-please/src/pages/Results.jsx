@@ -30,13 +30,19 @@ function Results({ resultados }) {
               CATEGORÍAS:{' '}
               {resultados.categorias?.map((categoria) => (
                 <span key={categoria.id}>
-                  <span className='capitalize'>{categoria.detalle}:</span> {categoria.monto.format()}, dividido entre{' '}
-                  <span className='underline cursor-pointer' title={`Compartieron: ${categoria.comparten.personas.join(', ')}`}>
+                  <span className='capitalize underline italic'>{categoria.detalle}:</span> {categoria.monto.format()}, dividido entre{' '}
+                  <span className='italic cursor-pointer' title={`Compartieron: ${categoria.comparten.personas.join(', ')}`}>
                     {categoria.comparten.cantidad} personas
                   </span>{' '}
                   queda en {categoria.montoIndividual} cada una.
                 </span>
               ))}
+              Por lo tanto alguien que comsumió de todo debe poner {resultados.divisionQuienConsumioTodo}*.
+              <br />
+              <span className='text-sm'>
+                (*Caso específico de alguien que consumió de todo y que no tiene gastos previos. Para el detalle de cada persona, considerándose qué
+                cosas consumió y cuánto gasto previo ya efectuó, seguir leyendo)
+              </span>
             </div>
           )}
           <hr />
