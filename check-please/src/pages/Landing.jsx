@@ -13,6 +13,22 @@ function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, 
     return true;
   };
 
+  const handleSelectTodesComparten = (texto) => {
+    if (texto === 'Sí') setTodesCompartenTodo(true);
+    if (texto === 'No') setTodesCompartenTodo(false);
+  };
+
+  const handleSelectTipoReunion = (texto) => {
+    if (texto === 'Sí') setReunionTipoSalida(true);
+    if (texto === 'No') setReunionTipoSalida(false);
+    window.scrollBy({ top: 1000, behavior: 'smooth' });
+  };
+
+  const handleContinuar = () => {
+    navigate('/main');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className='display bg-medium w-screen min-h-screen tablet:flex tablet:flex-col tablet:justify-center'>
       <h1>Check Please</h1>
@@ -24,14 +40,14 @@ function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, 
           descripcion='Todes compartimos todo.'
           ejemplo='Dividir la cuenta en partes iguales.'
           active={todesCompartenTodo === true}
-          onClick={() => setTodesCompartenTodo(true)}
+          onClick={handleSelectTodesComparten}
         />
         <LandingButton
           texto='No'
           descripcion='Dividir la cuenta de acuerdo al consumo individual.'
           ejemplo='ej. Personas vegetarianas no deberían pagar por carne.'
           active={todesCompartenTodo === false}
-          onClick={() => setTodesCompartenTodo(false)}
+          onClick={handleSelectTodesComparten}
         />
       </div>
 
@@ -43,17 +59,18 @@ function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, 
             descripcion='Algunas personas ya compraron cosas.'
             ejemplo='ej: Camila trajo bebida, Luciano trajo postre, etc.'
             active={reunionTipoSalida === true}
-            onClick={() => setReunionTipoSalida(true)}
+            onClick={handleSelectTipoReunion}
           />
           <LandingButton
             texto='No'
             descripcion='No se realizaron gastos previos.'
             ejemplo='ej: Hay que pagar una cuenta en un restaurante.'
             active={reunionTipoSalida === false}
-            onClick={() => setReunionTipoSalida(false)}
+            onClick={handleSelectTipoReunion}
           />
         </div>
       ) : (
+        //* ↓ esto es invisible, únicamente ocupa el espacio de las preguntas mientras el usuario responde la primer pregunta
         <div className='invisible my-6'>
           <p>¿Se realizaron gastos previos?</p>
           <LandingButton
@@ -64,7 +81,7 @@ function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, 
         </div>
       )}
 
-      <Button text='Continuar' disabled={disableButton()} onClick={() => navigate('/main')} />
+      <Button text='Continuar' disabled={disableButton()} onClick={handleContinuar} />
     </div>
   );
 }

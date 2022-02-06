@@ -61,6 +61,9 @@ const calcular = (reunionTipoSalida = false, todesCompartenTodo = false, grupo, 
       montoIndividual: categoria.monto.distribute(categoria.comparten.cantidad)[0].format(),
     }));
 
+    //* Extra: adelanto el monto que debe poner una persona que consumió de todo
+    resultados.divisionQuienConsumioTodo = resultados.categorias.reduce((acc, cur) => currency(acc).add(cur.montoIndividual).format(), 0);
+
     //* Por cada persona del grupo, calcular qué compartió y qué no, para saber cuánto debe poner
     let grupoConConsumos = calcularConsumoIndividual(grupo, resultados.categorias);
 

@@ -35,12 +35,27 @@ body {
   @apply bg-text text-primary px-1 rounded-md;
 }
 
+input {
+  accent-color: #1E5F74;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+*:focus, *:active{
+  outline-color: #1E5F74;
+  outline-width: 2px;
+}
+
 .custom-table-cell {
-  @apply bg-primary py-1 px-1.5 box-border;
+  @apply bg-primary py-1 px-1.5 box-border mx-0;
 }
 
 .custom-table-left-side {
-  border-radius: 3px 0 0 3px;
+  border-radius: 4px 0 0 4px;
 }
 
 .custom-table-left-column {
@@ -55,7 +70,7 @@ body {
 }
 
 .custom-table-right-side {
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 4px 4px 0;
 }
 
 .custom-table-top-cell {

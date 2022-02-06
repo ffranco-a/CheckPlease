@@ -6,7 +6,7 @@ import CheckIcon from '../elements/CheckIcon';
 function LandingButton({ texto, descripcion, ejemplo, active, onClick }) {
   return (
     <div
-      onClick={onClick}
+      onClick={() => onClick(texto)}
       className={`${
         active ? 'bg-primary' : 'bg-dark'
       } w-11/12 max-w-lg mx-auto my-2 flex items-center py-4 pl-4 pr-2 text-light rounded-md shadow-md cursor-pointer transition-all duration-300`}>
