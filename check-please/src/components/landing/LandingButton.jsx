@@ -1,7 +1,7 @@
 import React from 'react';
 
 //? Components
-import CheckIcon from '../elements/CheckIcon';
+import CheckIcon from '../CheckIcon';
 
 function LandingButton({ texto, descripcion, ejemplo, active, onClick }) {
   return (
