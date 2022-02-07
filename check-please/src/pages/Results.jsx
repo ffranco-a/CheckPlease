@@ -48,7 +48,7 @@ function Results({ resultados }) {
           <hr />
           <br />
           PERSONA POR PERSONA:{' '}
-          {resultados.grupo.personas.map((persona) => (
+          {resultados.grupo.personas?.map((persona) => (
             <div key={persona.id} className='my-3'>
               <span className='capitalize font-bold underline'>{persona.nombre}</span>{' '}
               {persona.puso === '$0.00' ? `no puso nada` : `puso ${persona.puso}`} y consumió un total de {persona.comparte?.total}.
