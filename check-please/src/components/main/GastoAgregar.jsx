@@ -45,7 +45,7 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
       <form onSubmit={handleAgregarGasto} className='grid grid-cols-3-expenses'>
         <label className='custom-table-left-column custom-table-top-cell'>
           <span className='ml-2'>Realizado por</span>
-          <div className='custom-table-cell custom-table-left-side'>
+          <div className='custom-table-cell custom-table-left-side h-9'>
             <input type='text' id='focus-me' autoFocus name='persona' list='persona' value={gasto.persona} onChange={handleNuevoGasto} className='input-style w-full' />
           </div>
         </label>
@@ -55,14 +55,14 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
 
         <label className='custom-table-center-column custom-table-top-cell'>
           <span className='ml-2'>Monto</span>
-          <div className='custom-table-cell'>
+          <div className='custom-table-cell h-9'>
             <input type='number' name='monto' value={gasto.monto} onChange={handleNuevoGasto} className='input-style w-full' />
           </div>
         </label>
 
         <label className='custom-table-right-column custom-table-top-cell'>
           <span className='ml-2'>Detalle</span>
-          <div className='custom-table-cell custom-table-right-side'>
+          <div className='custom-table-cell custom-table-right-side h-9'>
             <input type='text' name='detalle' list='detalle' value={gasto.detalle} onChange={handleNuevoGasto} className='input-style w-full' />
           </div>
         </label>

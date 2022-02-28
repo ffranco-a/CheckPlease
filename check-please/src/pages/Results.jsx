@@ -37,12 +37,7 @@ function Results({ resultados }) {
                   queda en {categoria.montoIndividual} cada una.
                 </span>
               ))}
-              Por lo tanto alguien que comsumió de todo debe poner {resultados.divisionQuienConsumioTodo}*.
-              <br />
-              <span className='text-sm'>
-                (*Caso específico de alguien que consumió de todo y que no tiene gastos previos. Para el detalle de cada persona, considerándose qué
-                cosas consumió y cuánto gasto previo ya efectuó, seguir leyendo)
-              </span>
+              Si consumiste de todo, tenés que poner {resultados.divisionQuienConsumioTodo}.
             </div>
           )}
           <hr />

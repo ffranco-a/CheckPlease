@@ -29,6 +29,14 @@ function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, 
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  //* temporalmente mando directamente a los usuarios a la pantalla de carga de datos, hasta que la app funcione con todos los 4 modos
+  React.useEffect(() => {
+    setReunionTipoSalida(true);
+    setTodesCompartenTodo(false);
+    navigate('/main');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <div className='display bg-medium w-screen min-h-screen tablet:flex tablet:flex-col tablet:justify-center'>
       <h1>Check Please</h1>
@@ -70,7 +78,7 @@ function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, 
           />
         </div>
       ) : (
-        //* ↓ esto es invisible, únicamente ocupa el espacio de las preguntas mientras el usuario responde la primer pregunta
+        //* ↓ esto es invisible, únicamente ocupa el espacio de las preguntas mientras el usuario responde la primera pregunta
         <div className='invisible my-6'>
           <p>¿Se realizaron gastos previos?</p>
           <LandingButton

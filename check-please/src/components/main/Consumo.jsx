@@ -34,10 +34,12 @@ function Consumo({ todes, categoria, categorias, setCategorias, grupo }) {
         ¿Todes consumieron <span className='capitalize italic'>{categoria.detalle}</span>?: {categoria.todes ? 'SI' : 'NO'}
       </label> */}
       <ConsumosSiONo categoria={categoria.detalle} handleSetTodes={handleTodes} todes={categoria.todes} disabled={todes} />
-      
-        <div className={`${categoria.todes ? 'text-gray-500' : null} mt-auto`} >
+
+      {/* //* si la categoría no fue compartida por todes, muestro el selector de personas individuales */}
+      {!categoria.todes && (
+        <div className={`${categoria.todes ? 'text-gray-500' : null} mt-auto flex flex-col`}>
           <hr className='my-2' />
-          ¿Quiénes compartieron <span className='capitalize italic'>{categoria.detalle}</span>?
+          <h3 className='m-0 mb-auto'>¿Quiénes sí?</h3>
           {grupo.personas.map((persona) => (
             <div key={persona.id}>
               <ConsumoSelectorPersona
@@ -50,7 +52,7 @@ function Consumo({ todes, categoria, categorias, setCategorias, grupo }) {
             </div>
           ))}
         </div>
-      
+      )}
     </div>
   );
 }
