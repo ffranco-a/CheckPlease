@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import menuCircles from '../../static/images/menu-circles.svg';
 
 function Gasto({ gasto, borrarGasto }) {
+  const [showOptions, setShowOptions] = useState(false);
+
   return (
-    <div className='grid grid-cols-3-expenses'>
+    <div className='grid grid-cols-3-expenses relative'>
       <div className='custom-table-left-column pt-4'>
         <p className='m-0 capitalize custom-table-cell custom-table-left-side w-full'>{gasto.persona}</p>
       </div>
@@ -10,12 +14,23 @@ function Gasto({ gasto, borrarGasto }) {
         <p className='m-0 custom-table-cell w-full'>{gasto.monto}</p>
       </div>
       <div className='custom-table-right-column pt-4'>
-        <p className='m-0 capitalize custom-table-cell custom-table-right-side w-full'>{gasto.detalle}</p>
+        <p className='m-0 capitalize custom-table-cell w-full'>{gasto.detalle}</p>
       </div>
-      {/* <button>Editar</button> */}
-      <button onClick={() => borrarGasto(gasto)} className='bg-red-300 rounded-md'>
-        X
+      <button onClick={() => setShowOptions(!showOptions)} className='bg-primary-dark mt-4 custom-table-right-side'>
+        <img src={menuCircles} alt='options' aria-label='options menú button' className='h-6 w-6 mx-auto' />
       </button>
+
+      <div
+        className={`absolute right-7 top-4 bottom-0 bg-primary-dark flex items-center justify-end overflow-hidden box-border transition-all ${
+          showOptions ? 'w-60 px-6' : 'w-0 px-0'
+        }`}>
+        <button onClick={() => borrarGasto(gasto)} className='bg-complementary rounded-md px-4 min-w-max transition-colors hover:bg-medium'>
+          Borrar
+        </button>
+        {/* <button className='bg-primary rounded-md px-4 ml-4 min-w-max transition-colors hover:bg-primary-light'>
+          Editar
+        </button> */}
+      </div>
     </div>
   );
 }

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import currency from 'currency.js';
+import CheckIcon from '../elements/CheckIcon';
 
 function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCategorias }) {
+  const [disabledButton, setDisabledButton] = useState(true);
   const [gasto, setGasto] = useState({
     monto: '',
     detalle: '',
@@ -32,13 +34,13 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
       detalle: '',
       persona: '',
     });
-    document.getElementById('focus-me').focus();
+    document.getElementById('focus-me-on-submit').focus();
   };
 
-  const handleDisableButton = () => {
-    if (gasto.detalle?.length >= 2 && gasto.monto > 0) return false;
-    return true;
-  };
+  useEffect(() => {
+    if (gasto.detalle?.length >= 2 && gasto.monto > 0) setDisabledButton(false);
+    else setDisabledButton(true);
+  }, [gasto.detalle?.length, gasto.monto]);
 
   return (
     <div className='box-border'>
@@ -46,7 +48,16 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
         <label className='custom-table-left-column custom-table-top-cell'>
           <span className='ml-2'>Realizado por</span>
           <div className='custom-table-cell custom-table-left-side h-9'>
-            <input type='text' id='focus-me' autoFocus name='persona' list='persona' value={gasto.persona} onChange={handleNuevoGasto} className='input-style w-full' />
+            <input
+              type='text'
+              id='focus-me-on-submit'
+              autoFocus
+              name='persona'
+              list='persona'
+              value={gasto.persona}
+              onChange={handleNuevoGasto}
+              className='input-style w-full'
+            />
           </div>
         </label>
         <datalist id='persona' className='capitalize'>
@@ -62,7 +73,7 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
 
         <label className='custom-table-right-column custom-table-top-cell'>
           <span className='ml-2'>Detalle</span>
-          <div className='custom-table-cell custom-table-right-side h-9'>
+          <div className='custom-table-cell h-9'>
             <input type='text' name='detalle' list='detalle' value={gasto.detalle} onChange={handleNuevoGasto} className='input-style w-full' />
           </div>
         </label>
@@ -70,7 +81,12 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
           {categorias.length > 0 && categorias.map((categoria, i) => <option key={i} value={categoria.detalle} className='capitalize' />)}
         </datalist>
 
-        <input type='submit' value='Agregar' disabled={handleDisableButton()} className='bg-green-400 rounded-md overflow-hidden' />
+        <button
+          type='submit'
+          disabled={disabledButton}
+          className={`${disabledButton ? 'bg-primary-dark' : 'bg-primary-light'} h-9 custom-table-right-side mt-auto grid place-items-center`}>
+          {!disabledButton && <CheckIcon size='small' />}
+        </button>
       </form>
     </div>
   );
