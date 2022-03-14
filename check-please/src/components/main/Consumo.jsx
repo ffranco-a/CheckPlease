@@ -2,7 +2,7 @@ import React from 'react';
 import ConsumoSelectorPersona from './ConsumoSelectorPersona';
 import ConsumosSiONo from './ConsumosSiONo';
 
-function Consumo({ todes, categoria, categorias, setCategorias, grupo }) {
+function Consumo({ todes, categoria, categorias, setCategorias, grupo, agregarPersona }) {
   //* función que actualiza a una categoría: si fue o no consumida por todes
   const handleTodes = (e) => {
     if (categoria.todes === null || (e.target.value === 'no' && categoria.todes === true) || (e.target.value === 'si' && categoria.todes === false)) {
@@ -51,6 +51,7 @@ function Consumo({ todes, categoria, categorias, setCategorias, grupo }) {
               />
             </div>
           ))}
+          <input type='text' />
         </div>
       )}
     </div>

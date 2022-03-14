@@ -18,7 +18,7 @@ module.exports = {
         complementary: '#4B4B4B',
       },
       gridTemplateColumns: {
-        '3-expenses': '35% 25% 35% 5%',
+        '3-expenses': '35% 25% 35% minmax(20px, 5%)',
       },
       keyframes: {
         wiggle: {

@@ -9,8 +9,8 @@ function AgregarPersonas({ agregarPersona, setMostrarInput }) {
 
   const handleAgregarPersona = (e) => {
     e.preventDefault();
-    agregarPersona(nombre.toLowerCase());
-    setNombre('');
+    let success = agregarPersona(nombre.toLowerCase());
+    if (success) setNombre('');
   };
 
   const handleDisableButton = () => {

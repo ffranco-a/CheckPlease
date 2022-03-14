@@ -48,7 +48,14 @@ function Main({
         setCategorias={setCategorias}
         agregarPersona={handleAgregarPersona}
       />
-      <Consumos categorias={categorias} setCategorias={setCategorias} grupo={grupo} todes={todesCompartenTodo} setTodes={setTodesCompartenTodo} />
+      <Consumos
+        categorias={categorias}
+        setCategorias={setCategorias}
+        grupo={grupo}
+        todes={todesCompartenTodo}
+        setTodes={setTodesCompartenTodo}
+        agregarPersona={handleAgregarPersona}
+      />
       <button
         disabled={disabledCalculateButton()}
         className={`${disabledCalculateButton() ? 'disabled-button' : 'enabled-button'} button`}
