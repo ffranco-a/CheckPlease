@@ -51,7 +51,6 @@ function Consumo({ todes, categoria, categorias, setCategorias, grupo, agregarPe
               />
             </div>
           ))}
-          <input type='text' />
         </div>
       )}
     </div>
