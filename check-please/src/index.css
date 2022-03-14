@@ -51,7 +51,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .custom-table-cell {
-  @apply bg-primary py-1 px-1.5 box-border mx-0;
+  @apply bg-primary py-1 px-1.5 box-border mx-0 h-full;
 }
 
 .custom-table-left-side {

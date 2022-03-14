@@ -2,9 +2,9 @@ import React from 'react';
 
 import check from '../../static/images/landing-check.svg';
 
-function CheckIcon() {
+function CheckIcon({ size }) {
   return (
-    <div className='w-6 h-6 grid place-items-center mr-2 animate-wiggle'>
+    <div className={`${size === 'small' ? 'w-4 h-4' : 'w-6 h-6 mr-2'} grid place-items-center animate-wiggle`}>
       <img src={check} alt='' />
     </div>
   );

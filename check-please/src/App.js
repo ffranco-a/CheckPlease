@@ -32,11 +32,12 @@ function App() {
   const handleAgregarPersona = (nombre) => {
     if (grupo.personas.some((persona) => persona.nombre === nombre)) {
       alert(`Los nombres de las personas deben ser únicos`);
-      return;
+      return false;
     } else {
       const id = grupo.personas.length === 0 ? 0 : grupo.personas[grupo.personas.length - 1].id + 1;
       const personas = [...grupo.personas, { nombre, id }];
       setGrupo({ cantidad: personas.length, personas });
+      return true;
     }
   };
 

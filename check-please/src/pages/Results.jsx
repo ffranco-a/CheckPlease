@@ -37,18 +37,13 @@ function Results({ resultados }) {
                   queda en {categoria.montoIndividual} cada una.
                 </span>
               ))}
-              Por lo tanto alguien que comsumió de todo debe poner {resultados.divisionQuienConsumioTodo}*.
-              <br />
-              <span className='text-sm'>
-                (*Caso específico de alguien que consumió de todo y que no tiene gastos previos. Para el detalle de cada persona, considerándose qué
-                cosas consumió y cuánto gasto previo ya efectuó, seguir leyendo)
-              </span>
+              Si consumiste de todo, tenés que poner {resultados.divisionQuienConsumioTodo}.
             </div>
           )}
           <hr />
           <br />
           PERSONA POR PERSONA:{' '}
-          {resultados.grupo.personas.map((persona) => (
+          {resultados.grupo.personas?.map((persona) => (
             <div key={persona.id} className='my-3'>
               <span className='capitalize font-bold underline'>{persona.nombre}</span>{' '}
               {persona.puso === '$0.00' ? `no puso nada` : `puso ${persona.puso}`} y consumió un total de {persona.comparte?.total}.

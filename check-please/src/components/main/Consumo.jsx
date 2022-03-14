@@ -2,7 +2,7 @@ import React from 'react';
 import ConsumoSelectorPersona from './ConsumoSelectorPersona';
 import ConsumosSiONo from './ConsumosSiONo';
 
-function Consumo({ todes, categoria, categorias, setCategorias, grupo }) {
+function Consumo({ todes, categoria, categorias, setCategorias, grupo, agregarPersona }) {
   //* función que actualiza a una categoría: si fue o no consumida por todes
   const handleTodes = (e) => {
     if (categoria.todes === null || (e.target.value === 'no' && categoria.todes === true) || (e.target.value === 'si' && categoria.todes === false)) {
@@ -34,10 +34,12 @@ function Consumo({ todes, categoria, categorias, setCategorias, grupo }) {
         ¿Todes consumieron <span className='capitalize italic'>{categoria.detalle}</span>?: {categoria.todes ? 'SI' : 'NO'}
       </label> */}
       <ConsumosSiONo categoria={categoria.detalle} handleSetTodes={handleTodes} todes={categoria.todes} disabled={todes} />
-      
-        <div className={`${categoria.todes ? 'text-gray-500' : null} mt-auto`} >
+
+      {/* //* si la categoría no fue compartida por todes, muestro el selector de personas individuales */}
+      {!categoria.todes && (
+        <div className={`${categoria.todes ? 'text-gray-500' : null} mt-auto flex flex-col`}>
           <hr className='my-2' />
-          ¿Quiénes compartieron <span className='capitalize italic'>{categoria.detalle}</span>?
+          <h3 className='m-0 mb-auto'>¿Quiénes sí?</h3>
           {grupo.personas.map((persona) => (
             <div key={persona.id}>
               <ConsumoSelectorPersona
@@ -49,8 +51,9 @@ function Consumo({ todes, categoria, categorias, setCategorias, grupo }) {
               />
             </div>
           ))}
+          <input type='text' />
         </div>
-      
+      )}
     </div>
   );
 }
