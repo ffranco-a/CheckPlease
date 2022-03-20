@@ -1,3 +1,4 @@
+//? librería currency, ideal para manejar temas monetarios
 import currency from 'currency.js';
 
 //? importo los sub-helpers
@@ -23,13 +24,13 @@ const calcular = (reunionTipoSalida = false, todesCompartenTodo = false, grupo, 
   /*
    * A partir de ahora lo que devuelva va a depender de estos dos parámetros:
    /
-   ? caso A : ¿todes comparten todo? ( división equitativa )
-   *      1 : sí
-   *      2 : no
+   ? caso A- : ¿todes comparten todo? ( división equitativa )
+   *      A1 : sí
+   *      A2 : no
    /
-   ? caso B : ¿reunión tipo salida? ( sin gastos previos que computar )
-   *      1 : sí
-   *      2 : no
+   ? caso B- : ¿reunión tipo salida? ( sin gastos previos que computar )
+   *      B1 : sí
+   *      B2 : no
    / 
    * en sus cuatro combinaciones posibles,
    * siendo A1B1 la más sencilla (de hecho ya se realizaron los cálculos que hacen falta)

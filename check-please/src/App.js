@@ -18,12 +18,112 @@ function App() {
 
   //* Objeto con la cantidad de personas en el grupo y array sus nombres
   const [grupo, setGrupo] = useState({ cantidad: 0, personas: [] });
+  /* const [grupo, setGrupo] = useState({
+    "cantidad": 7,
+    "personas": [
+      {
+        "nombre": "camila",
+        "id": 0
+      },
+      {
+        "nombre": "abi",
+        "id": 1
+      },
+      {
+        "nombre": "franco",
+        "id": 2
+      },
+      {
+        "nombre": "luciano",
+        "id": 3
+      },
+      {
+        "nombre": "alvaro",
+        "id": 4
+      },
+      {
+        "nombre": "emo",
+        "id": 5
+      },
+      {
+        "nombre": "ale",
+        "id": 6
+      }
+    ]
+  },); */
 
   //* Array con los gastos individuales realizados
   const [gastos, setGastos] = useState([]);
+  /* const [gastos, setGastos] = useState([
+    {
+      "persona": "camila",
+      "detalle": "cerveza",
+      "monto": "$450.00",
+      "id": 0
+    },
+    {
+      "persona": "franco",
+      "detalle": "cerveza",
+      "monto": "$600.00",
+      "id": 1
+    },
+    {
+      "persona": "luciano",
+      "detalle": "cena",
+      "monto": "$1,300.00",
+      "id": 2
+    },
+    {
+      "persona": "ale",
+      "detalle": "cena",
+      "monto": "$500.00",
+      "id": 3
+    },
+    {
+      "persona": "alvaro",
+      "detalle": "postre",
+      "monto": "$730.00",
+      "id": 4
+    }
+  ]); */
 
   //* Array con las categorias a subdividir por consumo
   const [categorias, setCategorias] = useState([]);
+  /* const [categorias, setCategorias] = useState([
+    {
+      "id": 0,
+      "detalle": "cerveza",
+      "comparten": [
+        "camila",
+        "franco",
+        "abi",
+        "alvaro",
+        "emo"
+      ],
+      "todes": false
+    },
+    {
+      "id": 1,
+      "detalle": "cena",
+      "comparten": [
+        "luciano",
+        "alvaro",
+        "emo",
+        "abi",
+        "camila",
+        "franco"
+      ],
+      "todes": false
+    },
+    {
+      "id": 2,
+      "detalle": "postre",
+      "comparten": [
+        "alvaro"
+      ],
+      "todes": true
+    }
+  ]); */
 
   //* Objeto con los resultados que se computarán con toda la información de arriba
   const [resultados, setResultados] = useState({});

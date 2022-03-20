@@ -16,7 +16,7 @@ function ConsumosSiONo({ categoria, todes, setTodes, handleSetTodes, disabled })
       ¿Todes compartieron <span className='capitalize'>{categoria}</span>?<br />
       <label
         htmlFor={`${categoria} si`}
-        className={`${todes === true ? 'bg-primary' : 'bg-primary-dark'} m-1 p-1 rounded-lg transition-all hover:filter brightness-110 mr-4`}>
+        className={`${todes === true ? 'bg-primary' : 'bg-primary-dark cursor-pointer'} m-1 p-1 rounded-lg transition-all hover:filter brightness-110 mr-4`}>
         <input
           type='checkbox'
           disabled={disabled}
@@ -31,7 +31,7 @@ function ConsumosSiONo({ categoria, todes, setTodes, handleSetTodes, disabled })
       </label>
       <label
         htmlFor={`${categoria} no`}
-        className={`${todes === false ? 'bg-primary' : 'bg-primary-dark'} m-1 p-1 rounded-lg transition-all hover:filter-brightness-110`}>
+        className={`${todes === false ? 'bg-primary' : 'bg-primary-dark cursor-pointer'} m-1 p-1 rounded-lg transition-all hover:filter-brightness-110`}>
         <input
           type='checkbox'
           disabled={disabled}
