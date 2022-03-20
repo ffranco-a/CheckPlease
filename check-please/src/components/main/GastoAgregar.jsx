@@ -84,7 +84,7 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
         <button
           type='submit'
           disabled={disabledButton}
-          className={`${disabledButton ? 'bg-primary-dark' : 'bg-primary-light'} h-9 custom-table-right-side mt-auto grid place-items-center`}>
+          className={`${disabledButton ? 'bg-primary' : 'bg-primary-light'} h-9 custom-table-right-side mt-auto grid place-items-center`}>
           {!disabledButton && <CheckIcon size='small' />}
         </button>
       </form>

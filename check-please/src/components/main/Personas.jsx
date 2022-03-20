@@ -36,7 +36,7 @@ function Personas({ grupo, setGrupo, agregarPersona, gastos }) {
               <Persona persona={persona} borrarPersona={handleBorrarPersona} />
             </div>
           ))}
-        <PersonaBotonAgregar setMostrarInput={setMostrarInput} />
+        <PersonaBotonAgregar mostrarInput={mostrarInput} setMostrarInput={setMostrarInput} />
       </div>
       {mostrarInput && (
         <div>

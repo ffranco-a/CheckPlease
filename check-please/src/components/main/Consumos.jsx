@@ -1,12 +1,14 @@
 import React from 'react';
 import Consumo from './Consumo';
-import ConsumosSiONo from './ConsumosSiONo';
+// import ConsumosSiONo from './ConsumosSiONo';
 
 function Consumos({ categorias, setCategorias, grupo, todes, setTodes, agregarPersona }) {
   return (
     <fieldset className='bg-dark text-text p-3 rounded-lg'>
       <legend>Consumos compartidos</legend>
-      <ConsumosSiONo categoria='Todo' todes={todes} setTodes={setTodes} />
+      {/* //* comentado hasta que esa funcionalidad esté implementada, por el momento si no hay gastos le informo al user que aún no hay gastos por compartir */}
+      {/* <ConsumosSiONo categoria='Todo' todes={todes} setTodes={setTodes} /> */}
+      {categorias.length === 0 && <h4 className='text-center text-gray-500'>Esperando gastos...</h4>}
       <div className='grid grid-cols-2 gap-4 tablet:gap-8 mt-2'>
         {
           // todes === false &&

@@ -59,14 +59,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .custom-table-left-column {
-  border-right: 2px solid #1E5F74;
+  border-right: 3px solid #164655;
 }
 .custom-table-center-column {
-  border-right: 2px solid #1E5F74;
-  border-left: 3px solid #164655;
+  border-right: 3px solid #164655;
+  border-left: 2px solid #1E5F74;
 }
 .custom-table-right-column {
-  border-left: 3px solid #164655;
+  border-left: 2px solid #1E5F74;
 }
 
 .custom-table-right-side {

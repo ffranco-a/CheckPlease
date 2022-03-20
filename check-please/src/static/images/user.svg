@@ -46,12 +46,12 @@
     >
     <path
         id="path966"
-        style="stroke-linejoin:round;fill-rule:evenodd;stroke:#000000;stroke-linecap:round;stroke-width:5;fill:#ffffff"
+        style="stroke-linejoin:round;fill-rule:evenodd;stroke:#00000000;stroke-linecap:round;stroke-width:5;fill:#ffffff"
         d="m19.264 38.268c-6.372 3.391-10.242 10.129-12.651 17.138h44.863c-2.206-6.861-5.793-13.494-11.664-17.138-5.911-0.257-13.352 0-20.548 0z"
     />
     <path
         id="path710"
-        style="stroke-linejoin:round;fill-rule:evenodd;stroke:#000000;stroke-linecap:round;stroke-width:5;fill:#ffffff"
+        style="stroke-linejoin:round;fill-rule:evenodd;stroke:#164655;stroke-linecap:round;stroke-width:5;fill:#ffffff"
         d="m47.29 24.9c0 10.072-8.174 18.246-18.245 18.246-10.072 0-18.246-8.174-18.246-18.246 0-10.071 8.174-18.246 18.246-18.246 10.071 0.0004 18.245 8.175 18.245 18.246z"
     />
   </g

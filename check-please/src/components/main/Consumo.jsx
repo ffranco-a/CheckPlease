@@ -29,10 +29,6 @@ function Consumo({ todes, categoria, categorias, setCategorias, grupo, agregarPe
   return (
     <div className={`${todes ? 'bg-complementary' : 'bg-primary-dark'} p-2 flex flex-col text-text rounded-md h-full`}>
       <span className='capitalize font-bold text-center'>{categoria.detalle}</span>
-      {/* <label>
-        <input type='checkbox' checked={categoria.todes} onChange={() => handleTodes(categoria.id)} />
-        ¿Todes consumieron <span className='capitalize italic'>{categoria.detalle}</span>?: {categoria.todes ? 'SI' : 'NO'}
-      </label> */}
       <ConsumosSiONo categoria={categoria.detalle} handleSetTodes={handleTodes} todes={categoria.todes} disabled={todes} />
 
       {/* //* si la categoría no fue compartida por todes, muestro el selector de personas individuales */}
