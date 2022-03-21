@@ -45,7 +45,7 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
   return (
     <div className='box-border'>
       <form onSubmit={handleAgregarGasto} className='grid grid-cols-3-expenses'>
-        <label className='custom-table-left-column custom-table-top-cell'>
+        <label /* className='custom-table-left-column custom-table-top-cell' */>
           <span className='ml-2'>Realizado por</span>
           <div className='custom-table-cell custom-table-left-side h-9'>
             <input
@@ -64,14 +64,14 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
           {grupo.cantidad > 0 && grupo.personas.map((persona, i) => <option key={i} value={persona.nombre} className='capitalize' />)}
         </datalist>
 
-        <label className='custom-table-center-column custom-table-top-cell'>
+        <label /* className='custom-table-center-column custom-table-top-cell' */>
           <span className='ml-2'>Monto</span>
           <div className='custom-table-cell h-9'>
             <input type='number' name='monto' value={gasto.monto} onChange={handleNuevoGasto} className='input-style w-full' />
           </div>
         </label>
 
-        <label className='custom-table-right-column custom-table-top-cell'>
+        <label /* className='custom-table-right-column custom-table-top-cell' */>
           <span className='ml-2'>Detalle</span>
           <div className='custom-table-cell h-9'>
             <input type='text' name='detalle' list='detalle' value={gasto.detalle} onChange={handleNuevoGasto} className='input-style w-full' />
