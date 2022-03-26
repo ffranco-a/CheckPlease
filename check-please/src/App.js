@@ -17,9 +17,9 @@ function App() {
   const [todesCompartenTodo, setTodesCompartenTodo] = useState(null);
 
   //* Objeto con la cantidad de personas en el grupo y array sus nombres
-  const [grupo, setGrupo] = useState({ cantidad: 0, personas: [] });
-  /* const [grupo, setGrupo] = useState({
-    "cantidad": 7,
+  // const [grupo, setGrupo] = useState({ cantidad: 0, personas: [] });
+  const [grupo, setGrupo] = useState({
+    "cantidad": 8,
     "personas": [
       {
         "nombre": "camila",
@@ -48,17 +48,21 @@ function App() {
       {
         "nombre": "ale",
         "id": 6
+      },
+      {
+        "nombre": "coti",
+        "id": 7
       }
     ]
-  },); */
+  });
 
   //* Array con los gastos individuales realizados
-  const [gastos, setGastos] = useState([]);
-  /* const [gastos, setGastos] = useState([
+  // const [gastos, setGastos] = useState([]);
+  const [gastos, setGastos] = useState([
     {
       "persona": "camila",
       "detalle": "cerveza",
-      "monto": "$450.00",
+      "monto": "$550.00",
       "id": 0
     },
     {
@@ -82,14 +86,32 @@ function App() {
     {
       "persona": "alvaro",
       "detalle": "postre",
-      "monto": "$730.00",
+      "monto": "$800.00",
       "id": 4
+    },
+    {
+      "persona": "franco",
+      "detalle": "papitas",
+      "monto": "$280.00",
+      "id": 5
+    },
+    {
+      "persona": "franco",
+      "detalle": "salamin",
+      "monto": "$700.00",
+      "id": 6
+    },
+    {
+      "persona": "coti",
+      "detalle": "vino",
+      "monto": "$800.00",
+      "id": 7
     }
-  ]); */
+  ]);
 
   //* Array con las categorias a subdividir por consumo
-  const [categorias, setCategorias] = useState([]);
-  /* const [categorias, setCategorias] = useState([
+  // const [categorias, setCategorias] = useState([]);
+  const [categorias, setCategorias] = useState([
     {
       "id": 0,
       "detalle": "cerveza",
@@ -113,7 +135,7 @@ function App() {
         "camila",
         "franco"
       ],
-      "todes": false
+      "todes": true
     },
     {
       "id": 2,
@@ -122,8 +144,45 @@ function App() {
         "alvaro"
       ],
       "todes": true
+    },
+    {
+      "id": 3,
+      "detalle": "papitas",
+      "comparten": [
+        "franco",
+        "emo",
+        "alvaro",
+        "luciano",
+        "abi",
+        "camila",
+        "coti"
+      ],
+      "todes": false
+    },
+    {
+      "id": 4,
+      "detalle": "salamin",
+      "comparten": [
+        "franco",
+        "camila",
+        "abi",
+        "emo",
+        "ale"
+      ],
+      "todes": false
+    },
+    {
+      "id": 5,
+      "detalle": "vino",
+      "comparten": [
+        "coti",
+        "alvaro",
+        "camila",
+        "emo"
+      ],
+      "todes": false
     }
-  ]); */
+  ]);
 
   //* Objeto con los resultados que se computarán con toda la información de arriba
   const [resultados, setResultados] = useState({});
