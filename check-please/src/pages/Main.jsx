@@ -27,8 +27,14 @@ function Main({
 
   useEffect(() => {
     if (todesCompartenTodo === null) setTodesCompartenTodo(false);
+
+    /* //! DELETE, solo para pruebas, manda directo a resultados
+    document.getElementById('calculate-button').click();
+    console.log(`en src/pages/Main.jsx está la función que llama a resultados`); */
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return (
     <div className='display bg-medium w-screen min-h-screen tablet:flex tablet:flex-col tablet:justify-center'>
@@ -57,6 +63,7 @@ function Main({
         agregarPersona={handleAgregarPersona}
       />
       <button
+        id='calculate-button'
         disabled={disabledCalculateButton()}
         className={`${disabledCalculateButton() ? 'disabled-button' : 'enabled-button'} button`}
         onClick={handleCalcular}>

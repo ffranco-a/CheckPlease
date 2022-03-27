@@ -16,6 +16,10 @@ module.exports = {
         'primary-dark': '#164655',
         'primary-light': '#4D8191',
         complementary: '#4B4B4B',
+        green: '#556E53',
+        yellow: '#D89216',
+        orange: '#9D5028',
+        red: '#9D3D28'
       },
       gridTemplateColumns: {
         '3-expenses': '35% 25% 35% minmax(20px, 5%)',
@@ -31,6 +35,9 @@ module.exports = {
           '75%': { transform: 'translateY(1px)', filter: 'blur(.5px)' },
           '100%': '',
         }
+      },
+      minHeight: {
+        content: 'max-content',
       },
       minWidth: {
         logo: '3.5rem',

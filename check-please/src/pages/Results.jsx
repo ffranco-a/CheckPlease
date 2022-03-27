@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import ResultadoPersona from '../components/results/ResultadoPersona';
 
 function Results({ resultados }) {
   const navigate = useNavigate();
@@ -9,6 +10,15 @@ function Results({ resultados }) {
     if (location.pathname.includes('results') && resultados.total === undefined) navigate('/main');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  //* para evitar errores, si aún no hay resultados no computo nada
+  if (!resultados.total) return <></>;
+
+  //* para mostrar el grupo de forma ordenada, lo divido en dos columnas, con un índice intermedio
+  let middleIndex = resultados.grupo.cantidad / 2;
+  if (middleIndex % 2 !== 0) middleIndex = Math.ceil(middleIndex);
+  const firstGroupHalf = resultados.grupo.personas.slice(0, middleIndex);
+  const secondGroupHalf = resultados.grupo.personas.slice(middleIndex);
 
   return (
     <div className='display bg-medium w-screen min-h-screen tablet:flex tablet:flex-col tablet:justify-center'>
@@ -43,27 +53,21 @@ function Results({ resultados }) {
           <hr />
           <br />
           PERSONA POR PERSONA:{' '}
-          {resultados.grupo.personas?.map((persona) => (
-            <div key={persona.id} className='my-3'>
-              <span className='capitalize font-bold underline'>{persona.nombre}</span>{' '}
-              {persona.puso === '$0.00' ? `no puso nada` : `puso ${persona.puso}`} y consumió un total de {persona.comparte?.total}.
-              <br />
-              Por lo tanto,{' '}
-              {persona.puso === '$0.00' ? (
-                <span className='font-bold'>
-                  debe poner <span className='underline'>{persona.debe}</span> en el fondo común.
-                </span>
-              ) : persona.debe.includes('-') ? (
-                <span className='font-bold'>
-                  tiene que sacar <span className='underline'>{persona.debe.substring(1)}</span> del fondo común.
-                </span>
-              ) : (
-                <span className='font-bold'>
-                  debe poner solo <span className='underline'>{persona.debe}</span> en el fondo común ({persona.comparte?.total} - {persona.puso})
-                </span>
-              )}
+          <div className='flex gap-4 items-start justify-between'>
+            {/* //* primera columna, flex column */}
+            <div className='flex flex-col w-full'>
+              {firstGroupHalf.map((persona) => (
+                <ResultadoPersona key={persona.id} persona={persona} />
+              ))}
             </div>
-          ))}
+
+            {/* //* segunda columna, flex column reverse */}
+            <div className='flex flex-col-reverse w-full'>
+              {secondGroupHalf.map((persona) => (
+                <ResultadoPersona key={persona.id} persona={persona} />
+              ))}
+            </div>
+          </div>
         </>
       )}
     </div>
