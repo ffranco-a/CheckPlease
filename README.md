@@ -36,8 +36,11 @@
 
 <br />
 
-4. Para usuarios recurrentes: - Puede guardar grupos de amigues y con un solo click ya cargar a esas personas (de todas formas, es editable) - Puede ver historial de cálculos (o al menos los últimos)  
-   <br />
+- Para usuarios recurrentes:
+   - Puede guardar grupos de amigues y con un solo click ya cargar a esas personas (de todas formas, es editable)
+   - Puede ver historial de cálculos (o al menos los últimos)  
+
+<br />
 
 <hr />
 

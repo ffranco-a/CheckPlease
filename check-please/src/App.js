@@ -17,8 +17,8 @@ function App() {
   const [todesCompartenTodo, setTodesCompartenTodo] = useState(null);
 
   //* Objeto con la cantidad de personas en el grupo y array sus nombres
-  const [grupo, setGrupo] = useState({ cantidad: 0, personas: [] });
-  /* const [grupo, setGrupo] = useState({
+  // const [grupo, setGrupo] = useState({ cantidad: 0, personas: [] });
+  const [grupo, setGrupo] = useState({
     "cantidad": 8,
     "personas": [
       {
@@ -54,11 +54,11 @@ function App() {
         "id": 7
       }
     ]
-  }); */
+  });
 
   //* Array con los gastos individuales realizados
-  const [gastos, setGastos] = useState([]);
-  /* const [gastos, setGastos] = useState([
+  // const [gastos, setGastos] = useState([]);
+  const [gastos, setGastos] = useState([
     {
       "persona": "camila",
       "detalle": "cerveza",
@@ -107,11 +107,11 @@ function App() {
       "monto": "$800.00",
       "id": 7
     }
-  ]); */
+  ]);
 
   //* Array con las categorias a subdividir por consumo
-  const [categorias, setCategorias] = useState([]);
-  /* const [categorias, setCategorias] = useState([
+  // const [categorias, setCategorias] = useState([]);
+  const [categorias, setCategorias] = useState([
     {
       "id": 0,
       "detalle": "cerveza",
@@ -182,7 +182,7 @@ function App() {
       ],
       "todes": false
     }
-  ]); */
+  ]);
 
   //* Objeto con los resultados que se computarán con toda la información de arriba
   const [resultados, setResultados] = useState({});
