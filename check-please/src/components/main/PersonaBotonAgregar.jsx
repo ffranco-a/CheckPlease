@@ -9,7 +9,7 @@ function PersonaBotonAgregar({ mostrarInput, setMostrarInput }) {
       } p-2 w-14 h-14 flex flex-col items-center justify-start bg-primary rounded-full relative  cursor-pointer transition-all`}
       onClick={() => setMostrarInput(!mostrarInput)}>
       <img src={addLogo} alt='user logo' className='w-5 h-5' />
-      <span className='text-xs text-text'>{mostrarInput ? 'Cerrar' : 'Agregar'}</span>
+      <span className='text-xs text-text'>Agregar</span>
     </div>
   );
 }

@@ -207,7 +207,7 @@ function App() {
     e.preventDefault();
 
     // setResultados(calcular(reunionTipoSalida, todesCompartenTodo, grupo, gastos, categorias)); //* ← este es el real
-    setResultados(calcular(false, false, grupo, gastos, categorias)); //TODO refactor. solo es versión estable para deployar
+    setResultados(calcular(false, false, grupo, gastos, categorias)); // TODO: refactor. solo es versión estable para deployar
     navigate('/results');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

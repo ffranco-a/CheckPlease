@@ -41,7 +41,7 @@ function Gastos({ gastos, setGastos, grupo, agregarPersona, categorias, setCateg
 
   return (
     <fieldset className='bg-dark text-text p-3 rounded-lg'>
-      <legend>Gastos</legend>
+      <legend className='text-2xl'>Gastos</legend>
       <GastoAgregar
         agregarGasto={handleAgregarGasto}
         grupo={grupo}

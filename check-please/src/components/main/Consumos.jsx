@@ -5,7 +5,7 @@ import Consumo from './Consumo';
 function Consumos({ categorias, setCategorias, grupo, todes, setTodes, agregarPersona }) {
   return (
     <fieldset className='bg-dark text-text p-3 rounded-lg'>
-      <legend>Consumos compartidos</legend>
+      <legend className='text-2xl'>Consumos compartidos</legend>
       {/* //* comentado hasta que esa funcionalidad esté implementada, por el momento si no hay gastos le informo al user que aún no hay gastos por compartir */}
       {/* <ConsumosSiONo categoria='Todo' todes={todes} setTodes={setTodes} /> */}
       {categorias.length === 0 && <h4 className='text-center text-gray-500'>Esperando gastos...</h4>}

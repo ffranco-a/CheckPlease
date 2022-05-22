@@ -7,7 +7,6 @@ function Persona({ persona, borrarPersona }) {
       <img src={userLogo} alt='user logo' className='w-6 h-6' />
       <span className='capitalize text-sm text-text relative bottom-1'>
         {persona.nombre}
-        {/* , id: {persona.id} */}
       </span>
       <button
         title={`Eliminar a ${persona.nombre.toUpperCase()} del grupo`}

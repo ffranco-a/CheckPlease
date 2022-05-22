@@ -28,7 +28,7 @@ function Consumo({ todes, categoria, categorias, setCategorias, grupo, agregarPe
 
   return (
     <div className={`${todes ? 'bg-complementary' : 'bg-primary-dark'} p-2 flex flex-col text-text rounded-md h-full`}>
-      <span className='capitalize font-bold text-center'>{categoria.detalle}</span>
+      <span className='capitalize font-bold text-center text-xl tracking-wide'>{categoria.detalle}</span>
       <ConsumosSiONo categoria={categoria.detalle} handleSetTodes={handleTodes} todes={categoria.todes} disabled={todes} />
 
       {/* //* si la categoría no fue compartida por todes, muestro el selector de personas individuales */}

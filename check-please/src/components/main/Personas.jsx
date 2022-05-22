@@ -13,8 +13,9 @@ function Personas({ grupo, setGrupo, agregarPersona, gastos }) {
   const handleBorrarPersona = (persona) => {
     //* si hay gastos realizados por la persona que se intenta eliminar, notifico al usuario y le pido que confirme (FALTA!)
     if (gastos.some((gasto) => gasto.persona === persona.nombre)) {
+      // TODO: implementar eliminación automática, con confirmación de usuario.
       alert(
-        'La persona que intentas eliminar tiene gastos registrados. Realizar esta acción borrará los gastos de esa persona, ¿confirmas realizar esta acción? (eventualmente implementar esta funcionalidad)'
+        'La persona que intentas eliminar tiene gastos registrados. Por favor primero elimina sus gastos y luego podrás quitar a esta persona del grupo.'
       );
       return;
     }
@@ -27,7 +28,7 @@ function Personas({ grupo, setGrupo, agregarPersona, gastos }) {
 
   return (
     <fieldset className='bg-dark text-text px-3 py-1 rounded-lg'>
-      <legend>Grupo</legend>
+      <legend className='text-2xl'>Grupo</legend>
       <div className='flex justify-center gap-4 my-2 overflow-x-auto flex-wrap'>
         {/* ↓ por cada persona en el array de personas muestro su nombre y opciones como editar el nombre o eliminarla */}
         {grupo.cantidad > 0 &&

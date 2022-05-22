@@ -19,7 +19,7 @@ module.exports = {
         green: '#556E53',
         yellow: '#D89216',
         orange: '#9D5028',
-        red: '#9D3D28'
+        // red: '#9D3D28'
       },
       gridTemplateColumns: {
         '3-expenses': '35% 25% 35% minmax(20px, 5%)',

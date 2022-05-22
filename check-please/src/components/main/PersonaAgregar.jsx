@@ -26,7 +26,7 @@ function AgregarPersonas({ agregarPersona, setMostrarInput }) {
         // onBlur={() => {
         //   if (nombre === '') setMostrarInput(false);
         // }}
-        className='bg-primary rounded flex items-center'>
+        className='bg-primary rounded flex items-center relative'>
         <input
           type='text'
           autoFocus
@@ -45,6 +45,13 @@ function AgregarPersonas({ agregarPersona, setMostrarInput }) {
           } h-full px-2 text-sm custom-table-right-side transition-all`}>
           Agregar
         </button>
+
+        {/* botón cerrar input agregar persona */}
+        <button
+          title={`Cerrar`}
+          onClick={() => setMostrarInput(false)}
+          className='h-4 w-4 absolute -top-2 -right-2 rounded-full bg-red-300 transition-all hover:bg-red-400'
+        />
       </form>
     </div>
   );
