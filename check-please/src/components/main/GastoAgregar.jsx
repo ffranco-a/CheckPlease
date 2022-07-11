@@ -82,6 +82,7 @@ function AgregarGasto({ agregarGasto, grupo, agregarPersona, categorias, setCate
         </datalist>
 
         <button
+          title='Guardar gasto'
           type='submit'
           disabled={disabledButton}
           className={`${disabledButton ? 'bg-primary' : 'bg-primary-light'} h-9 custom-table-right-side mt-auto grid place-items-center`}>

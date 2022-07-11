@@ -46,14 +46,14 @@ function Landing({ reunionTipoSalida, setReunionTipoSalida, todesCompartenTodo, 
         <LandingButton
           texto='Sí'
           descripcion='Todes compartimos todo.'
-          ejemplo='Dividir la cuenta en partes iguales.'
+          ejemplo='Se va a dividir la cuenta en partes iguales.'
           active={todesCompartenTodo === true}
           onClick={handleSelectTodesComparten}
         />
         <LandingButton
           texto='No'
           descripcion='Dividir la cuenta de acuerdo al consumo individual.'
-          ejemplo='ej. Personas vegetarianas no deberían pagar por carne.'
+          ejemplo='ej. Personas vegetarianas no deberían pagar gastos de carne.'
           active={todesCompartenTodo === false}
           onClick={handleSelectTodesComparten}
         />

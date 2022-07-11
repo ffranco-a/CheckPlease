@@ -63,6 +63,7 @@ function Main({
         agregarPersona={handleAgregarPersona}
       />
       <button
+        type='button'
         id='calculate-button'
         disabled={disabledCalculateButton()}
         className={`${disabledCalculateButton() ? 'disabled-button' : 'enabled-button'} button`}

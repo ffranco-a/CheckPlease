@@ -89,6 +89,12 @@ preguntar si todes consumieron todo (dividir la cuenta en partes iguales, tantas
 
 <hr />
 
+## Bugs
+
+- Versión beta: crear un gasto y no asignarlo a nadie, al momento de calcular rompe.
+
+<hr />
+
 <!--
 opciones paleta de colores 
 

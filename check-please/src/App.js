@@ -187,6 +187,8 @@ function App() {
   //* Objeto con los resultados que se computarán con toda la información de arriba
   const [resultados, setResultados] = useState({});
 
+  const navigate = useNavigate();
+
   //* Función que agrega personas al array `grupo` de personas
   const handleAgregarPersona = (nombre) => {
     if (grupo.personas.some((persona) => persona.nombre === nombre)) {
@@ -199,8 +201,6 @@ function App() {
       return true;
     }
   };
-
-  const navigate = useNavigate();
 
   //* llamar a la función para calcular
   const handleCalcular = (e) => {

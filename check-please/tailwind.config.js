@@ -31,8 +31,8 @@ module.exports = {
           '100%': { transform: 'none' },
         },
         fadein: {
-          '0%': { transform: 'translateY(10px)', filter: 'blur(2px)', opacity: 0 },
-          '75%': { transform: 'translateY(1px)', filter: 'blur(.5px)' },
+          '0%': { transform: 'translateY(10px)', /* filter: 'blur(1px)', */ opacity: 0 },
+          '75%': { transform: 'translateY(1px)', /* filter: 'blur(.5px)' */ },
           '100%': '',
         }
       },
